@@ -9,5 +9,4 @@ public class TourlinkApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(TourlinkApplication.class, args);
 	}
-//delete me
 }
