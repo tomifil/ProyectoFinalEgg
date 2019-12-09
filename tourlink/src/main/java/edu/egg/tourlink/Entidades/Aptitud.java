@@ -13,7 +13,7 @@ import javax.persistence.ManyToOne;
 @Entity
 public class Aptitud {
     @Id
-    private int id_aptitudes;
+    private int id_aptitud;
     private String descripcion;
     
     @ManyToOne
@@ -24,7 +24,7 @@ public class Aptitud {
     }
 
     public Aptitud(int id_aptitudes, String descripcion) {
-        this.id_aptitudes = id_aptitudes;
+        this.id_aptitud = id_aptitudes;
         this.descripcion = descripcion;
     }
 
@@ -32,14 +32,14 @@ public class Aptitud {
      * @return the id_aptitudes
      */
     public int getId_aptitudes() {
-        return id_aptitudes;
+        return id_aptitud;
     }
 
     /**
      * @param id_aptitudes the id_aptitudes to set
      */
     public void setId_aptitudes(int id_aptitudes) {
-        this.id_aptitudes = id_aptitudes;
+        this.id_aptitud = id_aptitudes;
     }
 
     /**
