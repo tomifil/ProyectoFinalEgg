@@ -6,18 +6,24 @@
 package edu.egg.tourlink.Entidades;
 
 import javax.persistence.Entity;
+import javax.persistence.Enumerated;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 @Entity
-public class Aptitudes {
+public class Aptitud {
     @Id
     private int id_aptitudes;
     private String descripcion;
-
-    public Aptitudes() {
+    
+    @ManyToOne
+    private Guia dni;
+    
+    
+    public Aptitud() {
     }
 
-    public Aptitudes(int id_aptitudes, String descripcion) {
+    public Aptitud(int id_aptitudes, String descripcion) {
         this.id_aptitudes = id_aptitudes;
         this.descripcion = descripcion;
     }
