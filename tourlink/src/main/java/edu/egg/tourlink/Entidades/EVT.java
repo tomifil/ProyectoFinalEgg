@@ -7,10 +7,14 @@ package edu.egg.tourlink.Entidades;
 
 import edu.egg.tourlink.Enumeraciones.Transporte;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import org.hibernate.annotations.GenericGenerator;
 
 @Entity
@@ -28,13 +32,14 @@ public class EVT {
     private String rrss_linkedin;
 
     @ManyToOne
-    private Transporte Tiene;
-    private Transporte NoTiene;
-    private Transporte NoSabe;
+    @Enumerated(EnumType.STRING) //Si tiene, no tiene,(o no sabe si tiene) transporte.
+    private Transporte Tiene,NoTiene,NoSabe;
 
     @OneToMany
     private Tour id_tour;
+    @Temporal(TemporalType.TIMESTAMP)
     private Tour fecha;
+    @Enumerated(EnumType.STRING)
     private Tour horario;
     
     public EVT() {
