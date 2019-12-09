@@ -5,16 +5,17 @@
  */
 package edu.egg.tourlink.Entidades;
 
+import edu.egg.tourlink.Enumeraciones.Transporte;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import org.hibernate.annotations.GenericGenerator;
 
 @Entity
 public class EVT {
     @Id
-    @GeneratedValue(generator = "uuid")
-    @GenericGenerator(name = "uuid", strategy = "uuid2")
     private int legajo_id;
     private String razon_social;
     private String direccion;
@@ -26,9 +27,21 @@ public class EVT {
     private String rrss_instagram;
     private String rrss_linkedin;
 
-    /**
-     * @return the legajo_id
-     */
+    @ManyToOne
+    private Transporte Tiene;
+    private Transporte NoTiene;
+    private Transporte NoSabe;
+
+    @OneToMany
+    private Tour id_tour;
+    private Tour fecha;
+    private Tour horario;
+    
+    public EVT() {
+    }
+    
+    
+     
     public int getLegajo_id() {
         return legajo_id;
     }
@@ -164,6 +177,90 @@ public class EVT {
      */
     public void setRrss_linkedin(String rrss_linkedin) {
         this.rrss_linkedin = rrss_linkedin;
+    }
+
+    /**
+     * @return the Tiene
+     */
+    public Transporte getTiene() {
+        return Tiene;
+    }
+
+    /**
+     * @param Tiene the Tiene to set
+     */
+    public void setTiene(Transporte Tiene) {
+        this.Tiene = Tiene;
+    }
+
+    /**
+     * @return the NoTiene
+     */
+    public Transporte getNoTiene() {
+        return NoTiene;
+    }
+
+    /**
+     * @param NoTiene the NoTiene to set
+     */
+    public void setNoTiene(Transporte NoTiene) {
+        this.NoTiene = NoTiene;
+    }
+
+    /**
+     * @return the NoSabe
+     */
+    public Transporte getNoSabe() {
+        return NoSabe;
+    }
+
+    /**
+     * @param NoSabe the NoSabe to set
+     */
+    public void setNoSabe(Transporte NoSabe) {
+        this.NoSabe = NoSabe;
+    }
+
+    /**
+     * @return the id_tour
+     */
+    public Tour getId_tour() {
+        return id_tour;
+    }
+
+    /**
+     * @param id_tour the id_tour to set
+     */
+    public void setId_tour(Tour id_tour) {
+        this.id_tour = id_tour;
+    }
+
+    /**
+     * @return the fecha
+     */
+    public Tour getFecha() {
+        return fecha;
+    }
+
+    /**
+     * @param fecha the fecha to set
+     */
+    public void setFecha(Tour fecha) {
+        this.fecha = fecha;
+    }
+
+    /**
+     * @return the horario
+     */
+    public Tour getHorario() {
+        return horario;
+    }
+
+    /**
+     * @param horario the horario to set
+     */
+    public void setHorario(Tour horario) {
+        this.horario = horario;
     }
     
     
