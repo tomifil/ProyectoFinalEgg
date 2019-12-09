@@ -19,9 +19,54 @@ public class Idioma {
     private String id;
     
     @Enumerated(EnumType.STRING)
-    Nivel_idioma nivel_idioma;
+    private Nivel_idioma nivel_idioma;
     @Enumerated(EnumType.STRING)
-    Tipo_idioma tipo_idioma;
+    private Tipo_idioma tipo_idioma;
+    
+    // Constructores
+    public Idioma(){}
+
+    /**
+     * @return the id
+     */
+    public String getId() {
+        return id;
+    }
+
+    /**
+     * @param id the id to set
+     */
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    /**
+     * @return the nivel_idioma
+     */
+    public Nivel_idioma getNivel_idioma() {
+        return nivel_idioma;
+    }
+
+    /**
+     * @param nivel_idioma the nivel_idioma to set
+     */
+    public void setNivel_idioma(Nivel_idioma nivel_idioma) {
+        this.nivel_idioma = nivel_idioma;
+    }
+
+    /**
+     * @return the tipo_idioma
+     */
+    public Tipo_idioma getTipo_idioma() {
+        return tipo_idioma;
+    }
+
+    /**
+     * @param tipo_idioma the tipo_idioma to set
+     */
+    public void setTipo_idioma(Tipo_idioma tipo_idioma) {
+        this.tipo_idioma = tipo_idioma;
+    }
     
     
 }

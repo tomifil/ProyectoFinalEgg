@@ -16,6 +16,24 @@ public class IdiomaGuia {
     
 //    @OneToOne
 //    Idioma idioma;
+    
+    // Constructores
+    public IdiomaGuia(){}
 
+    /**
+     * @return the id
+     */
+    public String getId() {
+        return id;
+    }
+
+    /**
+     * @param id the id to set
+     */
+    public void setId(String id) {
+        this.id = id;
+    }
+    
+    
     
 }
