@@ -44,7 +44,20 @@ public class EVT {
     
     public EVT() {
     }
+
+    public EVT(int legajo_id, String razon_social, String direccion, long telefono, String sitio_web, String email, String horario_atencion, String rrss_facebook, String rrss_instagram, String rrss_linkedin) {
+        this.legajo_id = legajo_id;
+        this.razon_social = razon_social;
+        this.direccion = direccion;
+        this.telefono = telefono;
+        this.sitio_web = sitio_web;
+        this.email = email;
+        this.horario_atencion = horario_atencion;
+        this.rrss_facebook = rrss_facebook;
+        this.rrss_instagram = rrss_instagram;
+        this.rrss_linkedin = rrss_linkedin;
     
+    }
     
      
     public int getLegajo_id() {
