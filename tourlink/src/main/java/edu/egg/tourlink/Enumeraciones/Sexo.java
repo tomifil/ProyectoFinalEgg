@@ -9,6 +9,6 @@ package edu.egg.tourlink.Enumeraciones;
  *
  * @author bird
  */
-public enum Transporte {
-    Tiene,NoTiene,NoSabe;
+public enum Sexo {
+    Masculino,Femenino,Otro;
 }

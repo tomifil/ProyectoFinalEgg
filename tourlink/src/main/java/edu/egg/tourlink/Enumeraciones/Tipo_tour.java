@@ -9,6 +9,6 @@ package edu.egg.tourlink.Enumeraciones;
  *
  * @author bird
  */
-public enum Transporte {
-    Tiene,NoTiene,NoSabe;
+public enum Tipo_tour {
+    FD_Luján,FD_Maipú,FD_UcoNorte,FD_UcoSur,HD_Luján,HD_Maipú,AltaMontaña,City,CookingClass,Trf_InAeropuerto,Trf_OutAeropuerto,Trf_InTerminal,Trf_OutTerminal,Trf_Chile,Trf_InUco,Trf_OutUco;
 }

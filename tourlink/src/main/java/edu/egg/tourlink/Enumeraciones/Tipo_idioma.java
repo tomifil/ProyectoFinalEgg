@@ -9,6 +9,7 @@ package edu.egg.tourlink.Enumeraciones;
  *
  * @author bird
  */
-public enum Transporte {
-    Tiene,NoTiene,NoSabe;
+public enum Tipo_idioma {
+    Español,Inglés,Portugués,Francés,Alemán,Italiano,Ruso,Chino;
+
 }

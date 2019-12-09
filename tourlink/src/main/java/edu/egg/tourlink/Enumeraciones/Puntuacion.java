@@ -9,6 +9,6 @@ package edu.egg.tourlink.Enumeraciones;
  *
  * @author bird
  */
-public enum Transporte {
-    Tiene,NoTiene,NoSabe;
+public enum Puntuacion {
+    P1,P2,P3,P4,P5;
 }
