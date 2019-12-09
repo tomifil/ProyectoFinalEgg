@@ -31,11 +31,11 @@ public class EVT {
     private String rrss_instagram;
     private String rrss_linkedin;
 
-    @ManyToOne
+    @OneToMany
     @Enumerated(EnumType.STRING) //Si tiene, no tiene,(o no sabe si tiene) transporte.
     private Transporte Tiene,NoTiene,NoSabe;
 
-    @OneToMany
+    @ManyToOne
     private Tour id_tour;
     @Temporal(TemporalType.TIMESTAMP)
     private Tour fecha;
