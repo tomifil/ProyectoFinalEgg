@@ -12,6 +12,7 @@ import javax.persistence.ManyToOne;
 
 @Entity
 public class Aptitud {
+    // Atributos
     @Id
     private int id_aptitud;
     private String descripcion;
@@ -19,7 +20,7 @@ public class Aptitud {
     @ManyToOne
     private Guia dni;
     
-    
+    // Constructores
     public Aptitud() {
     }
 
@@ -27,7 +28,8 @@ public class Aptitud {
         this.id_aptitud = id_aptitudes;
         this.descripcion = descripcion;
     }
-
+    
+    // Getter & Setter
     /**
      * @return the id_aptitudes
      */

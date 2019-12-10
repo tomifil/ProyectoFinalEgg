@@ -26,6 +26,13 @@ public class Idioma {
     // Constructores
     public Idioma(){}
 
+    public Idioma(String id, Nivel_idioma nivel_idioma, Tipo_idioma tipo_idioma) {
+        this.id = id;
+        this.nivel_idioma = nivel_idioma;
+        this.tipo_idioma = tipo_idioma;
+    }
+    
+    // Getter & setter
     /**
      * @return the id
      */
