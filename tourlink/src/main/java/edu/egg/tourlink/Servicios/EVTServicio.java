@@ -6,7 +6,12 @@
 package edu.egg.tourlink.Servicios;
 
 import edu.egg.tourlink.Entidades.EVT;
+import edu.egg.tourlink.Entidades.Foto;
 import edu.egg.tourlink.ErrorServicio;
+import edu.egg.tourlink.Repositorios.EvtRepositorio;
+import java.util.Optional;
+import javax.transaction.Transactional;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -15,19 +20,77 @@ import org.springframework.web.multipart.MultipartFile;
  * @author bird
  */
 public class EVTServicio {
+    @Autowired
+    private FotoServicio fotoServicio;
+    
+    @Autowired
+    private EvtRepositorio  evtRepositorio;
+   
     
     public void registrar (MultipartFile archivo,String legajo_id,String razon_social,String direccion,long telefono,String email,String clave) throws ErrorServicio{
+        
         validar(legajo_id,razon_social,direccion,email,clave);
         
         EVT evt = new EVT();
         evt.setLegajo_id(legajo_id);
         evt.setRazon_social(razon_social);
         evt.setDireccion(direccion);
+        evt.setTelefono(telefono);
         evt.setEmail(email);
         
         String encriptada = new BCryptPasswordEncoder().encode(clave);
+        evt.setClave(encriptada);
+        
+//        Foto foto = fotoServicio.guardar(archivo);
+//        evt.setFoto(foto);
+        
+        
+        evtRepositorio.save(evt);
         
     }
+    
+    @Transactional
+    public void modificar (MultipartFile archivo, String legajo_id, String razon_social, String direccion, long telefono, String email, String clave) throws ErrorServicio {
+        validar(legajo_id, razon_social, direccion, email, clave);
+        
+        Optional <EVT> respuesta = evtRepositorio.findById(legajo_id);
+        if (respuesta.isPresent()) {
+            EVT evt = respuesta.get();
+            evt.setLegajo_id(legajo_id);
+            evt.setRazon_social(razon_social);
+            evt.setDireccion(direccion);
+            evt.setTelefono(telefono);
+            evt.setEmail(email);
+            
+            String encriptada = new BCryptPasswordEncoder().encode(clave);
+            evt.setClave(encriptada);
+            
+            String idFoto = null;
+            if (evt.getFoto() != null){
+                idFoto = evt.getFoto().getId();
+            }
+            Foto foto = fotoServicio.actualizar(idFoto, archivo);
+            evt.setFoto(foto);
+            
+            evtRepositorio.save(evt);
+        } else {
+            throw new ErrorServicio(" No se encontro la EVT solicitada");
+        }
+    }
+    
+    @Transactional
+    public void eliminarEVT (String legajo_id) throws ErrorServicio{
+        Optional<EVT> respuesta = evtRepositorio.findById(legajo_id);
+        if (respuesta.isPresent()){
+            EVT evt = respuesta.get();
+            evtRepositorio.delete(evt);
+            evtRepositorio.save(evt);
+        }else {
+            throw new ErrorServicio(" No se encontro la EVT solicitada");
+        }
+    }
+    
+    
     
     public void validar(String legajo_id,String razon_social,String direccion,String email,String clave) throws ErrorServicio{
         
@@ -51,5 +114,5 @@ public class EVTServicio {
             throw new ErrorServicio("El legajo del usuario no puede ser nulo");
         }
         
-    }
+        }
 }
