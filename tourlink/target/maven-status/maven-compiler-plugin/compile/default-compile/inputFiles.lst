@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /Users/bird/Documents/GitHub/tourlink/tourlink/src/main/java/edu/egg/tourlink/Enumeraciones/Disponibilidad_dia.java
 /Users/bird/Documents/GitHub/tourlink/tourlink/src/main/java/edu/egg/tourlink/Enumeraciones/Disponibilidad_turno.java
 /Users/bird/Documents/GitHub/tourlink/tourlink/src/main/java/edu/egg/tourlink/Repositorios/TourRepositorio.java
@@ -21,3 +22,54 @@
 /Users/bird/Documents/GitHub/tourlink/tourlink/src/main/java/edu/egg/tourlink/Entidades/IdiomaGuia.java
 /Users/bird/Documents/GitHub/tourlink/tourlink/src/main/java/edu/egg/tourlink/Entidades/Guia.java
 /Users/bird/Documents/GitHub/tourlink/tourlink/src/main/java/edu/egg/tourlink/Entidades/Idioma.java
+=======
+<<<<<<< HEAD
+C:\Users\Ed\Documents\GitHub\tourlink\tourlink\src\main\java\edu\egg\tourlink\Entidades\Idioma.java
+C:\Users\Ed\Documents\GitHub\tourlink\tourlink\src\main\java\edu\egg\tourlink\Repositorios\TourRepositorio.java
+C:\Users\Ed\Documents\GitHub\tourlink\tourlink\src\main\java\edu\egg\tourlink\Controladores\TourControladores.java
+C:\Users\Ed\Documents\GitHub\tourlink\tourlink\src\main\java\edu\egg\tourlink\Enumeraciones\Puntuacion.java
+C:\Users\Ed\Documents\GitHub\tourlink\tourlink\src\main\java\edu\egg\tourlink\Enumeraciones\Sexo.java
+C:\Users\Ed\Documents\GitHub\tourlink\tourlink\src\main\java\edu\egg\tourlink\Entidades\Guia.java
+C:\Users\Ed\Documents\GitHub\tourlink\tourlink\src\main\java\edu\egg\tourlink\Enumeraciones\Estado.java
+C:\Users\Ed\Documents\GitHub\tourlink\tourlink\src\main\java\edu\egg\tourlink\Enumeraciones\Transporte.java
+C:\Users\Ed\Documents\GitHub\tourlink\tourlink\src\main\java\edu\egg\tourlink\Enumeraciones\Nivel_idioma.java
+C:\Users\Ed\Documents\GitHub\tourlink\tourlink\src\main\java\edu\egg\tourlink\Entidades\EVT.java
+C:\Users\Ed\Documents\GitHub\tourlink\tourlink\src\main\java\edu\egg\tourlink\Enumeraciones\Tipo_tour.java
+C:\Users\Ed\Documents\GitHub\tourlink\tourlink\src\main\java\edu\egg\tourlink\Servicios\TourServicio.java
+C:\Users\Ed\Documents\GitHub\tourlink\tourlink\src\main\java\edu\egg\tourlink\Controladores\GuiaControladores.java
+C:\Users\Ed\Documents\GitHub\tourlink\tourlink\src\main\java\edu\egg\tourlink\Entidades\Calificacion.java
+C:\Users\Ed\Documents\GitHub\tourlink\tourlink\src\main\java\edu\egg\tourlink\Enumeraciones\Tipo_idioma.java
+C:\Users\Ed\Documents\GitHub\tourlink\tourlink\src\main\java\edu\egg\tourlink\Entidades\Aptitud.java
+C:\Users\Ed\Documents\GitHub\tourlink\tourlink\src\main\java\edu\egg\tourlink\Enumeraciones\Disponibilidad_turno.java
+C:\Users\Ed\Documents\GitHub\tourlink\tourlink\src\main\java\edu\egg\tourlink\Servicios\GuiaServicio.java
+C:\Users\Ed\Documents\GitHub\tourlink\tourlink\src\main\java\edu\egg\tourlink\Entidades\Tour.java
+C:\Users\Ed\Documents\GitHub\tourlink\tourlink\src\main\java\edu\egg\tourlink\Enumeraciones\Disponibilidad_dia.java
+C:\Users\Ed\Documents\GitHub\tourlink\tourlink\src\main\java\edu\egg\tourlink\TourlinkApplication.java
+C:\Users\Ed\Documents\GitHub\tourlink\tourlink\src\main\java\edu\egg\tourlink\Entidades\IdiomaGuia.java
+C:\Users\Ed\Documents\GitHub\tourlink\tourlink\src\main\java\edu\egg\tourlink\Repositorios\GuiaRepositorio.java
+=======
+C:\Users\lu\Documents\GitHub\tourlink\tourlink\src\main\java\edu\egg\tourlink\Entidades\EVT.java
+C:\Users\lu\Documents\GitHub\tourlink\tourlink\src\main\java\edu\egg\tourlink\Enumeraciones\Estado.java
+C:\Users\lu\Documents\GitHub\tourlink\tourlink\src\main\java\edu\egg\tourlink\Enumeraciones\Tipo_tour.java
+C:\Users\lu\Documents\GitHub\tourlink\tourlink\src\main\java\edu\egg\tourlink\Entidades\Aptitud.java
+C:\Users\lu\Documents\GitHub\tourlink\tourlink\src\main\java\edu\egg\tourlink\Controladores\TourControladores.java
+C:\Users\lu\Documents\GitHub\tourlink\tourlink\src\main\java\edu\egg\tourlink\Servicios\GuiaServicio.java
+C:\Users\lu\Documents\GitHub\tourlink\tourlink\src\main\java\edu\egg\tourlink\Enumeraciones\Sexo.java
+C:\Users\lu\Documents\GitHub\tourlink\tourlink\src\main\java\edu\egg\tourlink\Entidades\Guia.java
+C:\Users\lu\Documents\GitHub\tourlink\tourlink\src\main\java\edu\egg\tourlink\Enumeraciones\Transporte.java
+C:\Users\lu\Documents\GitHub\tourlink\tourlink\src\main\java\edu\egg\tourlink\TourlinkApplication.java
+C:\Users\lu\Documents\GitHub\tourlink\tourlink\src\main\java\edu\egg\tourlink\Entidades\Calificacion.java
+C:\Users\lu\Documents\GitHub\tourlink\tourlink\src\main\java\edu\egg\tourlink\Enumeraciones\Nivel_idioma.java
+C:\Users\lu\Documents\GitHub\tourlink\tourlink\src\main\java\edu\egg\tourlink\Servicios\TourServicio.java
+C:\Users\lu\Documents\GitHub\tourlink\tourlink\src\main\java\edu\egg\tourlink\Entidades\IdiomaGuia.java
+C:\Users\lu\Documents\GitHub\tourlink\tourlink\src\main\java\edu\egg\tourlink\Entidades\Idioma.java
+C:\Users\lu\Documents\GitHub\tourlink\tourlink\src\main\java\edu\egg\tourlink\Enumeraciones\Disponibilidad_dia.java
+C:\Users\lu\Documents\GitHub\tourlink\tourlink\src\main\java\edu\egg\tourlink\Enumeraciones\Tipo_idioma.java
+C:\Users\lu\Documents\GitHub\tourlink\tourlink\src\main\java\edu\egg\tourlink\Enumeraciones\Disponibilidad_turno.java
+C:\Users\lu\Documents\GitHub\tourlink\tourlink\src\main\java\edu\egg\tourlink\Controladores\GuiaControladores.java
+C:\Users\lu\Documents\GitHub\tourlink\tourlink\src\main\java\edu\egg\tourlink\Repositorios\TourRepositorio.java
+C:\Users\lu\Documents\GitHub\tourlink\tourlink\src\main\java\edu\egg\tourlink\Entidades\Tour.java
+C:\Users\lu\Documents\GitHub\tourlink\tourlink\src\main\java\edu\egg\tourlink\Repositorios\GuiaRepositorio.java
+C:\Users\lu\Documents\GitHub\tourlink\tourlink\src\main\java\edu\egg\tourlink\Enumeraciones\Puntuacion.java
+>>>>>>> 5b6c7e8675750666081a9d24196cc99aabb2779a
+>>>>>>> 1d737da3e7d19d1fb34ca52133b15a6af95dab5c
