@@ -19,7 +19,7 @@ public class Tour {
     @Id
     @GeneratedValue(generator = "uuid")
     @GenericGenerator(name = "uuid", strategy = "uuid2")
-    private int id;
+    private String id;
 
     @Temporal(TemporalType.TIMESTAMP)
     private Date fecha;
@@ -37,20 +37,19 @@ public class Tour {
     // Constructores
     public Tour() {
     }
-    public Tour(int id, Date fecha, String horario) {
+
+    public Tour(String id, Date fecha, String horario, Tipo_tour tipo_tour, List<Idioma> idiomas, List<Calificacion> calificaciones) {
         this.id = id;
         this.fecha = fecha;
         this.horario = horario;
+        this.tipo_tour = tipo_tour;
+        this.idiomas = idiomas;
+        this.calificaciones = calificaciones;
     }
+    
 
     // Getter & Setter
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
+    
 
     public Date getFecha() {
         return fecha;
@@ -108,6 +107,20 @@ public class Tour {
      */
     public void setCalificaciones(List<Calificacion> calificaciones) {
         this.calificaciones = calificaciones;
+    }
+
+    /**
+     * @return the id
+     */
+    public String getId() {
+        return id;
+    }
+
+    /**
+     * @param id the id to set
+     */
+    public void setId(String id) {
+        this.id = id;
     }
     
 

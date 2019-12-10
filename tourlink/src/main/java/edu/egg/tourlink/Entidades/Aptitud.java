@@ -7,14 +7,18 @@ package edu.egg.tourlink.Entidades;
 
 import javax.persistence.Entity;
 import javax.persistence.Enumerated;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import org.hibernate.annotations.GenericGenerator;
 
 @Entity
 public class Aptitud {
     // Atributos
     @Id
-    private int id_aptitud;
+    @GeneratedValue(generator = "uuid")
+    @GenericGenerator(name = "uuid", strategy = "uuid2")
+    private String id_aptitud;
     private String descripcion;
     
     @ManyToOne
@@ -24,25 +28,16 @@ public class Aptitud {
     public Aptitud() {
     }
 
-    public Aptitud(int id_aptitudes, String descripcion) {
-        this.id_aptitud = id_aptitudes;
+    public Aptitud(String id_aptitud, String descripcion, Guia dni) {
+        this.id_aptitud = id_aptitud;
         this.descripcion = descripcion;
-    }
-    
-    // Getter & Setter
-    /**
-     * @return the id_aptitudes
-     */
-    public int getId_aptitudes() {
-        return id_aptitud;
+        this.dni = dni;
     }
 
-    /**
-     * @param id_aptitudes the id_aptitudes to set
-     */
-    public void setId_aptitudes(int id_aptitudes) {
-        this.id_aptitud = id_aptitudes;
-    }
+    
+    
+    // Getter & Setter
+    
 
     /**
      * @return the descripcion
@@ -56,6 +51,34 @@ public class Aptitud {
      */
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
+    }
+
+    /**
+     * @return the id_aptitud
+     */
+    public String getId_aptitud() {
+        return id_aptitud;
+    }
+
+    /**
+     * @param id_aptitud the id_aptitud to set
+     */
+    public void setId_aptitud(String id_aptitud) {
+        this.id_aptitud = id_aptitud;
+    }
+
+    /**
+     * @return the dni
+     */
+    public Guia getDni() {
+        return dni;
+    }
+
+    /**
+     * @param dni the dni to set
+     */
+    public void setDni(Guia dni) {
+        this.dni = dni;
     }
     
 }

@@ -6,6 +6,7 @@
 package edu.egg.tourlink.Entidades;
 
 import edu.egg.tourlink.Enumeraciones.Transporte;
+import java.util.Date;
 import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -33,39 +34,38 @@ public class EVT {
     private String rrss_instagram;
     private String rrss_linkedin;
 
-    @OneToMany
     @Enumerated(EnumType.STRING) //Si tiene, no tiene,(o no sabe si tiene) transporte.
-    private Transporte Tiene,NoTiene,NoSabe;
+    private Transporte transporte;
 
     @OneToMany
     private List<Tour> tours;
     @Temporal(TemporalType.TIMESTAMP)
-    private Tour fecha;
-    @Enumerated(EnumType.STRING)
-    private Tour horario;
+    private Date fecha;
+    private String horario;
     
     // Constructores
     public EVT() {
     }
 
-    public EVT(int legajo_id, String razon_social, String direccion, long telefono, String sitio_web, String email, String horario_atencion, String rrss_facebook, String rrss_instagram, String rrss_linkedin, Transporte Tiene, Transporte NoTiene, Transporte NoSabe, List<Tour> tours, Tour fecha, Tour horario) {
+    public EVT(int legajo_id, String razon_social, String direccion, long telefono, String sitio_web, String email, String horario_atencion, String rrss_facebook, String rrss_instagram, String rrss_linkedin, Transporte transporte, List<Tour> tours, Date fecha, String horario) {
         this.legajo_id = legajo_id;
         this.razon_social = razon_social;
         this.direccion = direccion;
         this.telefono = telefono;
-        this.sitio_web = null;
+        this.sitio_web = sitio_web;
         this.email = email;
-        this.horario_atencion = null;
-        this.rrss_facebook = null;
-        this.rrss_instagram = null;
-        this.rrss_linkedin = null;
-        this.Tiene = null;
-        this.NoTiene = null;
-        this.NoSabe = null;
-        this.tours = null;
-        this.fecha = null;
-        this.horario = null;
+        this.horario_atencion = horario_atencion;
+        this.rrss_facebook = rrss_facebook;
+        this.rrss_instagram = rrss_instagram;
+        this.rrss_linkedin = rrss_linkedin;
+        this.transporte = transporte;
+        this.tours = tours;
+        this.fecha = fecha;
+        this.horario = horario;
     }
+
+    
+
     
     // Getter & setter 
     public int getLegajo_id() {
@@ -205,75 +205,9 @@ public class EVT {
         this.rrss_linkedin = rrss_linkedin;
     }
 
-    /**
-     * @return the Tiene
-     */
-    public Transporte getTiene() {
-        return Tiene;
-    }
-
-    /**
-     * @param Tiene the Tiene to set
-     */
-    public void setTiene(Transporte Tiene) {
-        this.Tiene = Tiene;
-    }
-
-    /**
-     * @return the NoTiene
-     */
-    public Transporte getNoTiene() {
-        return NoTiene;
-    }
-
-    /**
-     * @param NoTiene the NoTiene to set
-     */
-    public void setNoTiene(Transporte NoTiene) {
-        this.NoTiene = NoTiene;
-    }
-
-    /**
-     * @return the NoSabe
-     */
-    public Transporte getNoSabe() {
-        return NoSabe;
-    }
-
-    /**
-     * @param NoSabe the NoSabe to set
-     */
-    public void setNoSabe(Transporte NoSabe) {
-        this.NoSabe = NoSabe;
-    }
-
-    /**
-     * @return the fecha
-     */
-    public Tour getFecha() {
-        return fecha;
-    }
-
-    /**
-     * @param fecha the fecha to set
-     */
-    public void setFecha(Tour fecha) {
-        this.fecha = fecha;
-    }
-
-    /**
-     * @return the horario
-     */
-    public Tour getHorario() {
-        return horario;
-    }
     
-    /**
-     * @param horario the horario to set
-     */
-    public void setHorario(Tour horario) {
-        this.horario = horario;
-    }
+
+   
 
     /**
      * @return the tours
@@ -288,6 +222,50 @@ public class EVT {
     public void setTours(List<Tour> tours) {
         this.tours = tours;
     }
+
+    /**
+     * @return the transporte
+     */
+    public Transporte getTransporte() {
+        return transporte;
+    }
+
+    /**
+     * @param transporte the transporte to set
+     */
+    public void setTransporte(Transporte transporte) {
+        this.transporte = transporte;
+    }
+
+    /**
+     * @return the fecha
+     */
+    public Date getFecha() {
+        return fecha;
+    }
+
+    /**
+     * @param fecha the fecha to set
+     */
+    public void setFecha(Date fecha) {
+        this.fecha = fecha;
+    }
+
+    /**
+     * @return the horario
+     */
+    public String getHorario() {
+        return horario;
+    }
+
+    /**
+     * @param horario the horario to set
+     */
+    public void setHorario(String horario) {
+        this.horario = horario;
+    }
+
+
     
     
 }
