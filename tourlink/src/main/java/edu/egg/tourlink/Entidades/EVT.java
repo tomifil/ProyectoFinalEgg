@@ -23,7 +23,7 @@ import org.hibernate.annotations.GenericGenerator;
 public class EVT {
     // Atributos
     @Id
-    private int legajo_id;
+    private String legajo_id;
     private String razon_social;
     private String direccion;
     private long telefono;
@@ -47,7 +47,7 @@ public class EVT {
     public EVT() {
     }
 
-    public EVT(int legajo_id, String razon_social, String direccion, long telefono, String sitio_web, String email, String horario_atencion, String rrss_facebook, String rrss_instagram, String rrss_linkedin, Transporte transporte, List<Tour> tours, Date fecha, String horario) {
+    public EVT(String legajo_id, String razon_social, String direccion, long telefono, String sitio_web, String email, String horario_atencion, String rrss_facebook, String rrss_instagram, String rrss_linkedin, Transporte transporte, List<Tour> tours, Date fecha, String horario) {
         this.legajo_id = legajo_id;
         this.razon_social = razon_social;
         this.direccion = direccion;
@@ -68,14 +68,14 @@ public class EVT {
 
     
     // Getter & setter 
-    public int getLegajo_id() {
+    public String getLegajo_id() {
         return legajo_id;
     }
 
     /**
      * @param legajo_id the legajo_id to set
      */
-    public void setLegajo_id(int legajo_id) {
+    public void setLegajo_id(String legajo_id) {
         this.legajo_id = legajo_id;
     }
 
