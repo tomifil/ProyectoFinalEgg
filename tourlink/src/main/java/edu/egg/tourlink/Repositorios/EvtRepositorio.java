@@ -9,6 +9,6 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface EvtRepositorio extends JpaRepository<EVT, String>{
-    @Query("SELECT c FROM EVT c WHERE c.legajo_id = :legajo_id")
-    public EVT buscarPorLegajo(@Param("legajo_id")int legajo_id);
+//    @Query("SELECT c FROM EVT c WHERE c.legajo_id = :legajo_id")
+//    public EVT buscarPorLegajo(@Param("legajo_id")int legajo_id);
 }

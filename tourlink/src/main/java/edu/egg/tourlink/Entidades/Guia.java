@@ -32,7 +32,8 @@ public class Guia {
     private String rrss_facebook;
     private String rrss_instagram;
     private String rrss_linkedin;
-
+    private String clave;
+    
     @Temporal(TemporalType.TIMESTAMP)
     private Date fechaNacimiento;
     
@@ -49,7 +50,8 @@ public class Guia {
     private List<IdiomaGuia> idiomasGuia;
     @OneToMany
     private List<Aptitud> aptitudes;
-
+    @OneToOne
+    private Foto foto;
     
     // Constructores
     public Guia(){}
@@ -329,6 +331,48 @@ public class Guia {
      */
     public void setIdiomasGuia(List<IdiomaGuia> idiomasGuia) {
         this.idiomasGuia = idiomasGuia;
+    }
+
+    /**
+     * @return the aptitudes
+     */
+    public List<Aptitud> getAptitudes() {
+        return aptitudes;
+    }
+
+    /**
+     * @param aptitudes the aptitudes to set
+     */
+    public void setAptitudes(List<Aptitud> aptitudes) {
+        this.aptitudes = aptitudes;
+    }
+
+    /**
+     * @return the foto
+     */
+    public Foto getFoto() {
+        return foto;
+    }
+
+    /**
+     * @param foto the foto to set
+     */
+    public void setFoto(Foto foto) {
+        this.foto = foto;
+    }
+
+    /**
+     * @return the clave
+     */
+    public String getClave() {
+        return clave;
+    }
+
+    /**
+     * @param clave the clave to set
+     */
+    public void setClave(String clave) {
+        this.clave = clave;
     }
     
     
