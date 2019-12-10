@@ -15,6 +15,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import org.hibernate.annotations.GenericGenerator;
@@ -33,6 +34,7 @@ public class EVT {
     private String rrss_facebook;
     private String rrss_instagram;
     private String rrss_linkedin;
+    private String clave;
 
     @Enumerated(EnumType.STRING) //Si tiene, no tiene,(o no sabe si tiene) transporte.
     private Transporte transporte;
@@ -42,6 +44,9 @@ public class EVT {
     @Temporal(TemporalType.TIMESTAMP)
     private Date fecha;
     private String horario;
+    
+    @OneToOne
+    private Foto foto;
     
     // Constructores
     public EVT() {
@@ -68,6 +73,7 @@ public class EVT {
 
     
     // Getter & setter 
+    
     public int getLegajo_id() {
         return legajo_id;
     }
@@ -263,6 +269,22 @@ public class EVT {
      */
     public void setHorario(String horario) {
         this.horario = horario;
+    }
+
+    public String getClave() {
+        return clave;
+    }
+
+    public void setClave(String clave) {
+        this.clave = clave;
+    }
+
+    public Foto getFoto() {
+        return foto;
+    }
+
+    public void setFoto(Foto foto) {
+        this.foto = foto;
     }
 
 
