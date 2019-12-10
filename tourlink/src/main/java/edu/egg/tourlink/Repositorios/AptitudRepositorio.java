@@ -13,6 +13,7 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface AptitudRepositorio extends JpaRepository<Aptitud, String> {
-    @Query("SELECT c FROM Aptitud c WHERE c.id_aptitud = :id_aptitud")
-    public Aptitud buscarPorId(@Param("id_aptitud")String id_aptitud);
+    
+    @Query("SELECT c FROM Aptitud C WHERE c.dni = :dni")
+    public Aptitud buscarPorDni(@Param("id")String id);
 }
