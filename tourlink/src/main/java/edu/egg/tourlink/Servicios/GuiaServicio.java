@@ -5,6 +5,7 @@ import edu.egg.tourlink.Entidades.Guia;
 import edu.egg.tourlink.Repositorios.GuiaRepositorio;
 import edu.egg.tourlink.errores.ErrorServicio;
 import java.io.IOException;
+import java.util.Date;
 import java.util.Optional;
 import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -55,9 +56,46 @@ public class GuiaServicio implements UserDetailsService{
             guia.setApellido(apellido);
             guia.setEmail(email);
             
+            String encriptada = new BCryptPasswordEncoder().encode(clave);
+            guia.setClave(encriptada);
             
+            String idFoto = null;
+            if (guia.getFoto() != null ) {
+                idFoto = guia.getFoto().getId();           
+            }
+            
+            Foto foto = fotoServicio.actualizar(idFoto, archivo);
+            guia.setFoto(foto);
+            
+            guiaRepositorio.save(guia);
+        } else {
+            throw new ErrorServicio("No se encontró");
         }
     }
+@Transactional
+    public void deshabilitar(long dni) throws ErrorServicio{
+        Optional <Guia> respuesta = guiaRepositorio.findById(dni);
+        if(respuesta.isPresent()){
+            Guia guia= respuesta.get();           
+
+            guiaRepositorio.save(guia);
+        }else{
+            throw new ErrorServicio("No se encontró el usuario solicitado");
+        } 
+    }
+@Transactional
+    public void habilitar(long dni) throws ErrorServicio{
+        Optional <Guia> respuesta = guiaRepositorio.findById(dni);
+        if(respuesta.isPresent()){
+            Guia usuario = respuesta.get();
+
+            guiaRepositorio.save(usuario);
+        }else{
+            throw new ErrorServicio("No se encontró el usuario solicitado");
+        } 
+    }
+    
+
     
     public void validar(long dni, String nombre, String apellido, String email, String clave) throws ErrorServicio{
         if (nombre == null || nombre.isEmpty()) {
@@ -73,7 +111,13 @@ public class GuiaServicio implements UserDetailsService{
             throw new ErrorServicio ("La clave no puede estar vacío");
         }
     }
-    
+
+//    @Override
+//    public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
+//        //Guia guia = guiaRepositorio.buscarPorMail(email);
+//        VER PERMISOS
+//    }
+
     @Override
     public UserDetails loadUserByUsername(String string) throws UsernameNotFoundException {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
