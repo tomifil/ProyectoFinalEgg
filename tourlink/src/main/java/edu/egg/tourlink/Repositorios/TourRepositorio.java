@@ -11,6 +11,6 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface TourRepositorio extends JpaRepository<Tour, String>{
     
-      @Query("Select c FROM Tour c WHERE c.tour.id = :id")
-    public List<Tour> buscarTourPorId(@Param("id") String id);
+//      @Query("Select c FROM Tour c WHERE c.tour.id = :id")
+//    public List<Tour> buscarTourPorId(@Param("id") String id);
 }
