@@ -61,6 +61,7 @@ public class EVTServicio {
             evt.setRazon_social(razon_social);
             evt.setDireccion(direccion);
             evt.setTelefono(telefono);
+            
             evt.setEmail(email);
             
             String encriptada = new BCryptPasswordEncoder().encode(clave);
@@ -85,7 +86,7 @@ public class EVTServicio {
         if (respuesta.isPresent()){
             EVT evt = respuesta.get();
             evtRepositorio.delete(evt);
-            evtRepositorio.save(evt);
+            //evtRepositorio.save(evt); No es necesario guardar despues de eliminarlo
         }else {
             throw new ErrorServicio(" No se encontro la EVT solicitada");
         }
