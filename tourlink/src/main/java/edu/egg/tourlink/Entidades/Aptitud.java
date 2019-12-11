@@ -22,17 +22,17 @@ public class Aptitud {
     private String descripcion;
     
     @ManyToOne
-    private Guia dni;
+    private Guia guia;
     
     // Constructores
     public Aptitud() {
     }
 
-    public Aptitud(String id_aptitud, String descripcion, Guia dni) {
-        this.id_aptitud = id_aptitud;
-        this.descripcion = descripcion;
-        this.dni = dni;
-    }
+//    public Aptitud(String id_aptitud, String descripcion, Guia guia) {
+//        this.id_aptitud = id_aptitud;
+//        this.descripcion = descripcion;
+//        this.dni = dni;
+//    }
 
     
     
@@ -67,18 +67,17 @@ public class Aptitud {
         this.id_aptitud = id_aptitud;
     }
 
-    /**
-     * @return the dni
-     */
-    public Guia getDni() {
-        return dni;
+    public Guia getGuia() {
+        return guia;
+    }
+
+    public void setGuia(Guia guia) {
+        this.guia = guia;
     }
 
     /**
-     * @param dni the dni to set
+     * @return the dni
      */
-    public void setDni(Guia dni) {
-        this.dni = dni;
-    }
+    
     
 }
