@@ -12,7 +12,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface GuiaRepositorio extends JpaRepository<Guia, Long> {
    @Query( "SELECT c FROM Guia c WHERE c.dni = :dni ") 
-   public List<Guia> buscarPorGuia (@Param("id") String id);
+   public List<Guia> buscarPorGuia (@Param("dni") String dni);
 
-    public Optional<Guia> findById(String id);
+//    public Optional<Guia> findById(String id);
 }
