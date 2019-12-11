@@ -55,26 +55,26 @@ public class Guia {
     // Constructores
     public Guia(){}
 
-    public Guia(long dni, String nombre, String apellido, String email, String direccion, long telefono, String educacion, String experiencia, String extracto, String rrss_facebook, String rrss_instagram, String rrss_linkedin, Date fechaNacimiento, Sexo sexo, Disponibilidad_dia disponibilidad_dia, Disponibilidad_turno disponibilidad_turno, Estado estado, List<Aptitud> aptitudes) {
-        this.dni = dni;
-        this.nombre = nombre;
-        this.apellido = apellido;
-        this.email = email;
-        this.direccion = direccion;
-        this.telefono = telefono;
-        this.educacion = null;
-        this.experiencia = null;
-        this.extracto = null;
-        this.rrss_facebook = null;
-        this.rrss_instagram = null;
-        this.rrss_linkedin = null;
-        this.fechaNacimiento = null;
-        this.sexo = null;
-        this.disponibilidad_dia = null;
-        this.disponibilidad_turno = null;
-        this.estado = null;
-        this.aptitudes = null;
-    }
+//    public Guia(long dni, String nombre, String apellido, String email, String direccion, long telefono, String educacion, String experiencia, String extracto, String rrss_facebook, String rrss_instagram, String rrss_linkedin, Date fechaNacimiento, Sexo sexo, Disponibilidad_dia disponibilidad_dia, Disponibilidad_turno disponibilidad_turno, Estado estado, List<Aptitud> aptitudes) {
+//        this.dni = dni;
+//        this.nombre = nombre;
+//        this.apellido = apellido;
+//        this.email = email;
+//        this.direccion = direccion;
+//        this.telefono = telefono;
+//        this.educacion = null;
+//        this.experiencia = null;
+//        this.extracto = null;
+//        this.rrss_facebook = null;
+//        this.rrss_instagram = null;
+//        this.rrss_linkedin = null;
+//        this.fechaNacimiento = null;
+//        this.sexo = null;
+//        this.disponibilidad_dia = null;
+//        this.disponibilidad_turno = null;
+//        this.estado = null;
+//        this.aptitudes = null;
+//    }
     
     
     // Getter & Setter

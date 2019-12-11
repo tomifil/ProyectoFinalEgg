@@ -13,6 +13,7 @@ import java.util.Date;
 import java.util.List;
 import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
+import java.util.Optional;
 
 public class TourServicio {
     @Autowired
@@ -37,7 +38,45 @@ public class TourServicio {
 
         tourRepositorio.save(tour);
     }
-    
+    //Modificar tour.
+         @Transactional
+    public void modificarTour(String legajo_id, String id, Tipo_tour tipo_tour, List<Idioma> idiomas, List<Calificacion> calificaciones, Date fecha,String horario) throws ErrorServicio {
+
+        validar(tipo_tour, idiomas, fecha, horario);
+
+        Optional<Tour> respuesta = tourRepositorio.findById(id);
+        if (respuesta.isPresent()) {
+            Tour tour = respuesta.get();
+      
+                tour.setCalificaciones(calificaciones);
+                tour.setFecha(fecha);
+                tour.setHorario(horario);
+                tour.setIdiomas(idiomas);
+                tour.setTipo_tour(tipo_tour);
+                
+                tourRepositorio.save(tour);
+
+        } else {
+            throw new ErrorServicio("No existe una tour con el identificador solicitado");
+        }
+    }
+//Eliminar Tour
+     @Transactional
+    public void eliminarTour(String legajo_id, String id) throws ErrorServicio {
+        Optional<Tour> respuesta = tourRepositorio.findById(id);
+        
+        if (respuesta.isPresent()) {
+            Tour tour = respuesta.get();
+            
+                tourRepositorio.delete(tour);
+                               
+            
+
+            } else {
+                throw new ErrorServicio("No se encontro el Tour solicitada");
+            }
+        }
+        
     public void validar(Tipo_tour tipo_tour, List<Idioma> idiomas,  Date fecha,String horario) throws ErrorServicio {
         if (tipo_tour == null) {
             throw new ErrorServicio("El tipo de tour no puede ser nulo.");
