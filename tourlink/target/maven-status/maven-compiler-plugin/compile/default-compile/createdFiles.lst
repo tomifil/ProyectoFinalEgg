@@ -1,6 +1,5 @@
 edu\egg\tourlink\Errores\ErrorServicio.class
 edu\egg\tourlink\Enumeraciones\Puntuacion.class
-edu\egg\tourlink\Entidades\IdiomaGuia.class
 edu\egg\tourlink\Enumeraciones\Nivel_idioma.class
 edu\egg\tourlink\Enumeraciones\Tipo_tour.class
 edu\egg\tourlink\Entidades\Foto.class
@@ -27,7 +26,6 @@ edu\egg\tourlink\Servicios\TourServicio.class
 edu\egg\tourlink\Entidades\Calificacion.class
 edu\egg\tourlink\Controladores\TourControladores.class
 edu\egg\tourlink\Servicios\AptitudServicio.class
-edu\egg\tourlink\Repositorios\IdiomaGuiaRepositorio.class
 edu\egg\tourlink\Servicios\FotoServicio.class
 edu\egg\tourlink\Entidades\Idioma.class
 edu\egg\tourlink\Servicios\GuiaServicio.class

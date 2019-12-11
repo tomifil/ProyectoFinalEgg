@@ -9,7 +9,6 @@ C:\Users\lu\Documents\GitHub\tourlink\tourlink\src\main\java\edu\egg\tourlink\En
 C:\Users\lu\Documents\GitHub\tourlink\tourlink\src\main\java\edu\egg\tourlink\Enumeraciones\Transporte.java
 C:\Users\lu\Documents\GitHub\tourlink\tourlink\src\main\java\edu\egg\tourlink\TourlinkApplication.java
 C:\Users\lu\Documents\GitHub\tourlink\tourlink\src\main\java\edu\egg\tourlink\Enumeraciones\Nivel_idioma.java
-C:\Users\lu\Documents\GitHub\tourlink\tourlink\src\main\java\edu\egg\tourlink\Entidades\IdiomaGuia.java
 C:\Users\lu\Documents\GitHub\tourlink\tourlink\src\main\java\edu\egg\tourlink\Enumeraciones\Disponibilidad_turno.java
 C:\Users\lu\Documents\GitHub\tourlink\tourlink\src\main\java\edu\egg\tourlink\Servicios\IdiomaServicio.java
 C:\Users\lu\Documents\GitHub\tourlink\tourlink\src\main\java\edu\egg\tourlink\Controladores\GuiaControladores.java
@@ -19,7 +18,6 @@ C:\Users\lu\Documents\GitHub\tourlink\tourlink\src\main\java\edu\egg\tourlink\Re
 C:\Users\lu\Documents\GitHub\tourlink\tourlink\src\main\java\edu\egg\tourlink\Enumeraciones\Puntuacion.java
 C:\Users\lu\Documents\GitHub\tourlink\tourlink\src\main\java\edu\egg\tourlink\Repositorios\AptitudRepositorio.java
 C:\Users\lu\Documents\GitHub\tourlink\tourlink\src\main\java\edu\egg\tourlink\Enumeraciones\Estado.java
-C:\Users\lu\Documents\GitHub\tourlink\tourlink\src\main\java\edu\egg\tourlink\Repositorios\IdiomaGuiaRepositorio.java
 C:\Users\lu\Documents\GitHub\tourlink\tourlink\src\main\java\edu\egg\tourlink\Servicios\FotoServicio.java
 C:\Users\lu\Documents\GitHub\tourlink\tourlink\src\main\java\edu\egg\tourlink\Servicios\GuiaServicio.java
 C:\Users\lu\Documents\GitHub\tourlink\tourlink\src\main\java\edu\egg\tourlink\Repositorios\FotoRepositorio.java
