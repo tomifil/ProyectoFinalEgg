@@ -17,11 +17,11 @@ public class Calificacion {
     @Id
     @GeneratedValue(generator = "uuid")
     @GenericGenerator(name = "uuid", strategy = "uuid2")
-    String id; //El id hace referencia al QR_CODE
-    String extracto;
+    private String id; //El id hace referencia al QR_CODE
+    private String extracto;
     
     @Enumerated(EnumType.STRING)
-    Puntuacion puntuacion;
+    private Puntuacion puntuacion;
     @ManyToOne
     private Tour id_tour;
     
@@ -36,6 +36,38 @@ public class Calificacion {
         this.extracto = extracto;
         this.id_tour = id_tour;
         this.puntuacion=puntuacion;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getExtracto() {
+        return extracto;
+    }
+
+    public void setExtracto(String extracto) {
+        this.extracto = extracto;
+    }
+
+    public Puntuacion getPuntuacion() {
+        return puntuacion;
+    }
+
+    public void setPuntuacion(Puntuacion puntuacion) {
+        this.puntuacion = puntuacion;
+    }
+
+    public Tour getId_tour() {
+        return id_tour;
+    }
+
+    public void setId_tour(Tour id_tour) {
+        this.id_tour = id_tour;
     }
     
 }
