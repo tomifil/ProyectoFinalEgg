@@ -8,7 +8,7 @@ package edu.egg.tourlink.Servicios;
 import edu.egg.tourlink.Entidades.Aptitud;
 
 import edu.egg.tourlink.Repositorios.AptitudRepositorio;
-import edu.egg.tourlink.errores.ErrorServicio;
+import edu.egg.tourlink.Errores.ErrorServicio;
 
 import java.util.Optional;
 

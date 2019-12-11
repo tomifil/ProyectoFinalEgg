@@ -46,8 +46,7 @@ public class Guia {
     @Enumerated(EnumType.STRING)  // Activo o inactivo
     private Estado estado;
     
-    @OneToMany
-    private List<IdiomaGuia> idiomasGuia;
+    
     @OneToMany
     private List<Aptitud> aptitudes;
     @OneToOne
@@ -56,7 +55,7 @@ public class Guia {
     // Constructores
     public Guia(){}
 
-    public Guia(long dni, String nombre, String apellido, String email, String direccion, long telefono, String educacion, String experiencia, String extracto, String rrss_facebook, String rrss_instagram, String rrss_linkedin, Date fechaNacimiento, Sexo sexo, Disponibilidad_dia disponibilidad_dia, Disponibilidad_turno disponibilidad_turno, Estado estado, List<IdiomaGuia> idiomasGuia, List<Aptitud> aptitudes) {
+    public Guia(long dni, String nombre, String apellido, String email, String direccion, long telefono, String educacion, String experiencia, String extracto, String rrss_facebook, String rrss_instagram, String rrss_linkedin, Date fechaNacimiento, Sexo sexo, Disponibilidad_dia disponibilidad_dia, Disponibilidad_turno disponibilidad_turno, Estado estado, List<Aptitud> aptitudes) {
         this.dni = dni;
         this.nombre = nombre;
         this.apellido = apellido;
@@ -74,7 +73,6 @@ public class Guia {
         this.disponibilidad_dia = null;
         this.disponibilidad_turno = null;
         this.estado = null;
-        this.idiomasGuia = null;
         this.aptitudes = null;
     }
     
@@ -317,20 +315,6 @@ public class Guia {
      */
     public void setEstado(Estado estado) {
         this.estado = estado;
-    }
-
-    /**
-     * @return the idiomasGuia
-     */
-    public List<IdiomaGuia> getIdiomasGuia() {
-        return idiomasGuia;
-    }
-
-    /**
-     * @param idiomasGuia the idiomasGuia to set
-     */
-    public void setIdiomasGuia(List<IdiomaGuia> idiomasGuia) {
-        this.idiomasGuia = idiomasGuia;
     }
 
     /**
