@@ -3,7 +3,7 @@ package edu.egg.tourlink.Servicios;
 import edu.egg.tourlink.Entidades.Foto;
 import edu.egg.tourlink.Entidades.Guia;
 import edu.egg.tourlink.Repositorios.GuiaRepositorio;
-import edu.egg.tourlink.errores.ErrorServicio;
+import edu.egg.tourlink.Errores.ErrorServicio;
 import java.io.IOException;
 import java.util.Date;
 import java.util.Optional;

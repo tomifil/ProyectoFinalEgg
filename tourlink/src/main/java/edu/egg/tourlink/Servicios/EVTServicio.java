@@ -41,8 +41,8 @@ public class EVTServicio {
         String encriptada = new BCryptPasswordEncoder().encode(clave);
         evt.setClave(encriptada);
         
-//        Foto foto = fotoServicio.guardar(archivo);
-//        evt.setFoto(foto);
+        Foto foto = fotoServicio.guardar(archivo);
+        evt.setFoto(foto);
         
         
         evtRepositorio.save(evt);

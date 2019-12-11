@@ -4,7 +4,7 @@ import edu.egg.tourlink.Entidades.Idioma;
 import edu.egg.tourlink.Enumeraciones.Nivel_idioma;
 import edu.egg.tourlink.Enumeraciones.Tipo_idioma;
 import edu.egg.tourlink.Repositorios.IdiomaRepositorio;
-import edu.egg.tourlink.errores.ErrorServicio;
+import edu.egg.tourlink.Errores.ErrorServicio;
 import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
