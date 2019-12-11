@@ -7,8 +7,9 @@ package edu.egg.tourlink.Servicios;
 
 import edu.egg.tourlink.Entidades.EVT;
 import edu.egg.tourlink.Entidades.Foto;
-import edu.egg.tourlink.ErrorServicio;
+import edu.egg.tourlink.Errores.ErrorServicio;
 import edu.egg.tourlink.Repositorios.EvtRepositorio;
+import java.io.IOException;
 import java.util.Optional;
 import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,7 +28,7 @@ public class EVTServicio {
     private EvtRepositorio  evtRepositorio;
    
     
-    public void registrar (MultipartFile archivo,String legajo_id,String razon_social,String direccion,long telefono,String email,String clave) throws ErrorServicio{
+    public void registrar (MultipartFile archivo,String legajo_id,String razon_social,String direccion,long telefono,String email,String clave) throws ErrorServicio, IOException{
         
         validar(legajo_id,razon_social,direccion,email,clave);
         
