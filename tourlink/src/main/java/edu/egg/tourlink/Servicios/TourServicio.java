@@ -8,7 +8,7 @@ import edu.egg.tourlink.Entidades.Tour;
 import edu.egg.tourlink.Enumeraciones.Tipo_tour;
 import edu.egg.tourlink.Repositorios.EvtRepositorio;
 import edu.egg.tourlink.Repositorios.TourRepositorio;
-import edu.egg.tourlink.errores.ErrorServicio;
+import edu.egg.tourlink.Errores.ErrorServicio;
 import java.util.Date;
 import java.util.List;
 import javax.transaction.Transactional;
