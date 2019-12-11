@@ -1,4 +1,4 @@
-package edu.egg.tourlink.servicios;
+package edu.egg.tourlink.Servicios;
 
 import edu.egg.tourlink.Entidades.Idioma;
 import edu.egg.tourlink.Enumeraciones.Nivel_idioma;
