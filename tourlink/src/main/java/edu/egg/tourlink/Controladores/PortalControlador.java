@@ -19,7 +19,7 @@ import org.springframework.web.multipart.MultipartFile;
 @Controller
 @RequestMapping("/")
 public class PortalControlador {
-    @GetMapping("index")
+    @GetMapping("/")
     public String index(){
         return "index.html";
     }
