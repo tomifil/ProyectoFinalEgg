@@ -18,7 +18,7 @@ public class FotoServicio {
     
     @Transactional
     public Foto guardar(MultipartFile archivo) throws ErrorServicio, IOException{
-        if(archivo == null){
+        if(archivo != null){
            try{
             Foto foto = new Foto();
             foto.setMime(archivo.getContentType());
@@ -29,7 +29,7 @@ public class FotoServicio {
                System.out.println(a.getMessage());
            }
         }
-            return null;  
+        return null;  
     }
     
     @Transactional

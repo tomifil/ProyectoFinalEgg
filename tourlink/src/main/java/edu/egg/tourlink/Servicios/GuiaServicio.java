@@ -26,6 +26,7 @@ public class GuiaServicio implements UserDetailsService{
 //    @Autowired
 //    private NotificacionServicio notificacionServicio;
     
+    @Autowired
     private FotoServicio fotoServicio;
  
 @Transactional
@@ -43,7 +44,8 @@ public class GuiaServicio implements UserDetailsService{
             Foto foto= fotoServicio.guardar(archivo);
             guia.setFoto(foto);
         }else {
-            archivo=null;
+            Foto foto= new Foto();
+            guia.setFoto(null);
         }
         
         
