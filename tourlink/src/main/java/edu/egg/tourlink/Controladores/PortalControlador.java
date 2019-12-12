@@ -6,6 +6,7 @@
 package edu.egg.tourlink.Controladores;
 
 import edu.egg.tourlink.Errores.ErrorServicio;
+import edu.egg.tourlink.Servicios.EVTServicio;
 import edu.egg.tourlink.Servicios.GuiaServicio;
 import java.io.IOException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,7 +27,7 @@ public class PortalControlador {
         return "index.html";
     }
     
-//    Registro de cliente
+//    Registro de GUÍA
     @Autowired
     GuiaServicio gs;
     
@@ -35,6 +36,21 @@ public class PortalControlador {
             @RequestParam(value="mail") String mail,@RequestParam(value="contrasena") String contrasena)throws ErrorServicio, IOException{
         try {
             gs.registrarGuia(archivo,dni, nombre, apellido, mail, contrasena);
+        }catch (ErrorServicio e){
+            e.printStackTrace();
+            System.out.println("Faltan datos");
+        }
+        return "index.html";
+    }
+// Registro de EVT
+    @Autowired
+    EVTServicio es;
+    
+    @PostMapping("/crearEvt")
+    public String crearEVT(@RequestParam(required=false,value="imagen") MultipartFile archivo,@RequestParam(value="legajo_id") String legajo_id,@RequestParam(value="razon_social") String razon_social,@RequestParam(value="direccion") String direccion, @RequestParam(value="telefono") long telefono, 
+            @RequestParam(value="email") String email,@RequestParam(value="contrasena") String clave)throws ErrorServicio, IOException{
+        try {
+            es.registrar(archivo,legajo_id, razon_social, direccion, telefono, email, clave);
         }catch (ErrorServicio e){
             e.printStackTrace();
             System.out.println("Faltan datos");

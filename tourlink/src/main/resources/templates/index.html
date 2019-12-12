@@ -34,11 +34,11 @@
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#votar">Votar</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#sobre-la-app">Sobre la App</a>
-          </li>                    
+            <button type="button" class="btn btn-outline btn-xl" data-toggle="modal" data-target="#exampleModal01">
+              REGISTRARME COMO EVT
+            </button>
+
+          </li>               
           <li class="nav-item">
             <button type="button" class="btn btn-outline btn-xl" data-toggle="modal" data-target="#exampleModal">
               REGISTRARME COMO GUÍA
@@ -51,7 +51,7 @@
   </nav>
 
 
-  <!-- Modal para registro -->
+  <!-- Modal para REGISTRO DE GUIAS -->
   <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
@@ -62,9 +62,9 @@
           </button>
         </div>
         <div class="modal-body">
-<!--          dni,nombre, apellido, email,clave-->
+<!--  id, razon_social, telefono, email, clave  -->
             <form id="formulario" class="form-inicio" method="POST" action="crear" enctype="multipart/form-data">
-            <div class="form-group">s
+            <div class="form-group">
               <label for="nombre">Nombre</label>
               <input type="text" class="form-control" id="nombre" aria-describedby="emailHelp" placeholder="Ingrese su nombre" name="nombre">              
               <small id="emailHelp" class="form-text text-muted"></small>
@@ -99,14 +99,69 @@
       </div>
     </div>
   </div>
-  <!-- Cierra modal para registro -->
+  <!-- Cierra modal para REGISTRO GUIAS -->
+  
+  
+    <!-- Modal para REGISTRO DE EVT -->
+  <div class="modal fade" id="exampleModal01" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">¡Bienvenido!</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+<!--  id, razon_social, telefono, email, clave  -->
+            <form id="formularioEvt" class="form-inicio" method="POST" action="crearEvt" enctype="multipart/form-data">
+            <div class="form-group">
+              <label for="nombre">Nombre</label>
+              <input type="text" class="form-control" id="nombre" aria-describedby="emailHelp" placeholder="Ingrese su nombre" name="razon_social">              
+              <small id="emailHelp" class="form-text text-muted"></small>
+            </div>
+            <div class="form-group">
+              <label for="legajo">Legajo</label>
+              <input type="number" class="form-control" id="legajo"  placeholder="Legajo" name="legajo_id">             
+            </div>
+            <div class="form-group">
+              <label for="direccion">Dirección</label>
+              <input type="text" class="form-control" id="direccion"  placeholder="Direccion" name="direccion">             
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" class="form-control" id="email" placeholder="Email" name="email">
+            </div>
+            <div class="form-group">
+              <label for="telefono">Teléfono</label>
+              <input type="number" class="form-control" id="telefono" placeholder="Ingrese teléfono" name="telefono">
+            </div>
+            <div class="form-group">
+              <label for="imagen">Imagen de perfil</label>
+              <input type="file" class="form-control-file" id="imagen" name="imagen">              
+            </div>
+            <div class="form-group">
+              <label for="contrasena">Contraseña</label>
+              <input type="password" class="form-control" id="contrasena" name="contrasena">
+            </div>
+          </form>
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-warning" data-dismiss="modal">Cerrar</button>
+          <button type="submit" form="formularioEvt" class="btn btn-success">Guardar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Cierra modal para REGISTRO EVT -->
 
   <header class="masthead">
     <div class="container h-100">
       <div class="row h-100">
         <div class="col-lg-7 my-auto">
           <div class="header-content mx-auto">
-            <h1 class="mb-5">¡Bienvenido a TINDER PETS! </h1>
+            <h1 class="mb-5">¡Bienvenido TOURLINK! </h1>
 
             <form class="form-inicio" action="ingresar">
               <div class="form-group">
@@ -129,25 +184,13 @@
           </div>
         </div>
         <div class="col-lg-5 my-auto">
-          <div class="device-container">
-            <div class="device-mockup iphone6_plus portrait white">
-              <div class="device">
-                <div class="screen">
-                  <!-- Demo image for screen mockup, you can put an image here, some HTML, an animation, video, or anything else! -->
-                  <img src="img/07.jpg" class="img-fluid" alt="dogi">
-                </div>
-                <div class="button">
-                  <!-- You can hook the "home button" to some JavaScript events or just remove it -->
-                </div>
-              </div>
-            </div>
-          </div>
+          
         </div>
       </div>
     </div>
   </header>
 
-  <section class="download bg-primary text-center" id="download">
+<!--  <section class="download bg-primary text-center" id="download">
     <div class="container">
       <div class="row">
         <div class="col-md-8 mx-auto">
@@ -160,9 +203,9 @@
         </div>
       </div>
     </div>
-  </section>
+  </section>-->
 
-  <section class="features" id="features">
+<!--  <section class="features" id="features">
     <div class="container">
       <div class="section-heading text-center">
         <h2>Lorem ipsum dolor sit amet</h2>
@@ -175,11 +218,11 @@
             <div class="device-mockup iphone6_plus portrait white">
               <div class="device">
                 <div class="screen">
-                  <!-- Demo image for screen mockup, you can put an image here, some HTML, an animation, video, or anything else! -->
+                   Demo image for screen mockup, you can put an image here, some HTML, an animation, video, or anything else! 
                   <img src="img/07.jpg" class="img-fluid" alt="">
                 </div>
                 <div class="button">
-                  <!-- You can hook the "home button" to some JavaScript events or just remove it -->
+                   You can hook the "home button" to some JavaScript events or just remove it 
                 </div>
               </div>
             </div>
@@ -223,9 +266,9 @@
         </div>
       </div>
     </div>
-  </section>
+  </section>-->
 
-  <section class="cta">
+<!--  <section class="cta">
     <div class="cta-content">
       <div class="container">
         <h2>Lorem ipsum dolor sit amet<br>Lorem ipsum dolor sit amet</h2>
@@ -233,9 +276,9 @@
       </div>
     </div>
     <div class="overlay"></div>
-  </section>
+  </section>-->
 
-  <section class="contact bg-primary" id="contact">
+<!--  <section class="contact bg-primary" id="contact">
     <div class="container">
       <h2>We
         <i class="fas fa-heart"></i>
@@ -258,7 +301,7 @@
         </li>
       </ul>
     </div>
-  </section>
+  </section>-->
 
   <footer>
     <div class="container">
