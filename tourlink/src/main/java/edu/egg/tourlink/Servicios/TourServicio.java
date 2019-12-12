@@ -23,9 +23,9 @@ public class TourServicio {
     @Autowired
     private TourRepositorio tourRepositorio;
     
-    //Creamos el Tour
+    //Creamos el Tour (chequear calificaciones, si va o no. )
     @Transactional
-    public void agregarTour(String legajo_id,Tipo_tour tipo_tour, List<Idioma> idiomas, List<Calificacion> calificaciones, Date fecha,String horario) throws ErrorServicio {
+    public void agregarTour(String legajo_id,Tipo_tour tipo_tour, List<Idioma> idiomas, /*List<Calificacion> calificaciones,*/ Date fecha,String horario) throws ErrorServicio {
 
         EVT evt = evtRepositorio.findById(legajo_id).get();
 
@@ -35,14 +35,14 @@ public class TourServicio {
         tour.setTipo_tour(tipo_tour);
         tour.setIdiomas(idiomas);
         tour.setFecha(fecha);
-        tour.setCalificaciones(calificaciones);
+        /*tour.setCalificaciones(calificaciones);*/
         tour.setHorario(horario);
 
         tourRepositorio.save(tour);
     }
     //Modificar tour.
          @Transactional
-    public void modificarTour(String legajo_id, String id, Tipo_tour tipo_tour, List<Idioma> idiomas, List<Calificacion> calificaciones, Date fecha,String horario) throws ErrorServicio {
+    public void modificarTour(String legajo_id, String id, Tipo_tour tipo_tour, List<Idioma> idiomas,/* List<Calificacion> calificaciones,*/ Date fecha,String horario) throws ErrorServicio {
 
         validar(tipo_tour, idiomas, fecha, horario);
 
@@ -50,7 +50,7 @@ public class TourServicio {
         if (respuesta.isPresent()) {
             Tour tour = respuesta.get();
       
-                tour.setCalificaciones(calificaciones);
+                /*tour.setCalificaciones(calificaciones);*/
                 tour.setFecha(fecha);
                 tour.setHorario(horario);
                 tour.setIdiomas(idiomas);

@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package edu.egg.tourlink.Servicios;
 
 import edu.egg.tourlink.Entidades.EVT;
@@ -17,10 +13,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
-/**
- *
- * @author bird
- */
+
 @Service
 public class EVTServicio {
     @Autowired
@@ -29,6 +22,7 @@ public class EVTServicio {
     @Autowired
     private EvtRepositorio  evtRepositorio;
    
+    
     
     public void registrar (MultipartFile archivo,String legajo_id,String razon_social,String direccion,long telefono,String email,String clave) throws ErrorServicio, IOException{
         

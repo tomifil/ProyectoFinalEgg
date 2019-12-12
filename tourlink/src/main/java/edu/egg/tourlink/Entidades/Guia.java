@@ -4,6 +4,7 @@ import edu.egg.tourlink.Enumeraciones.Disponibilidad_dia;
 import edu.egg.tourlink.Enumeraciones.Disponibilidad_turno;
 import edu.egg.tourlink.Enumeraciones.Estado;
 import edu.egg.tourlink.Enumeraciones.Sexo;
+import edu.egg.tourlink.Enumeraciones.Tipo_tour;
 import java.util.Date;
 import java.util.List;
 import javax.persistence.Entity;
@@ -45,11 +46,15 @@ public class Guia {
     private Disponibilidad_turno disponibilidad_turno;
     @Enumerated(EnumType.STRING)  // Activo o inactivo
     private Estado estado;
-    
-    
     @OneToMany
-    private List<Aptitud> aptitudes;
-    @OneToOne
+    private List<Aptitud> aptitudes; 
+    //Agregamos idioma(May,Fran)
+    @OneToMany
+    private List<Idioma> idiomas;
+    //Agregamos tipo tour
+    @Enumerated(EnumType.STRING)
+    private List<Tipo_tour> tipos_tour;
+    
     private Foto foto;
     
     // Constructores
@@ -357,6 +362,22 @@ public class Guia {
      */
     public void setClave(String clave) {
         this.clave = clave;
+    }
+
+    public List<Idioma> getIdiomas() {
+        return idiomas;
+    }
+
+    public void setIdiomas(List<Idioma> idiomas) {
+        this.idiomas = idiomas;
+    }
+
+    public List<Tipo_tour> getTipos_tour() {
+        return tipos_tour;
+    }
+
+    public void setTipos_tour(List<Tipo_tour> tipos_tour) {
+        this.tipos_tour = tipos_tour;
     }
     
     

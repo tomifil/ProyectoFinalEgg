@@ -1,7 +1,8 @@
 
-package edu.egg.tourlink.Repositorios;
+/*package edu.egg.tourlink.Repositorios;
 
 import edu.egg.tourlink.Entidades.Guia;
+import edu.egg.tourlink.Entidades.Idioma;
 import java.util.List;
 import java.util.Optional;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -15,4 +16,18 @@ public interface GuiaRepositorio extends JpaRepository<Guia, Long> {
    public List<Guia> buscarPorGuia (@Param("dni") String dni);
 
 //    public Optional<Guia> findById(String id);
-}
+   //Buscar por idioma
+   public List<Guia>findByIdioma(List<Idioma> idiomas);
+   //Buscar por Direccion0
+   public List<Guia>findByDireccion(String direccion);
+   //Buscar por Estado
+   public List<Guia>findByEstado(String estado);
+   //Buscar por tipo de tour
+   public List<Guia>findByTipoTour(String tipo_tour);
+   //Buscar por tipo de tour
+   public List<Guia>findByDisponibilidadDia(String tipo_tour);
+   //Buscar por tipo de tour
+   public List<Guia>findByTipoTour(String tipo_tour);
+   
+   
+}*/
