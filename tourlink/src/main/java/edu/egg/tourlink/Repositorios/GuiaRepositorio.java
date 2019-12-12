@@ -1,5 +1,4 @@
-
-/*package edu.egg.tourlink.Repositorios;
+package edu.egg.tourlink.Repositorios;
 
 import edu.egg.tourlink.Entidades.Guia;
 import edu.egg.tourlink.Entidades.Idioma;
@@ -27,7 +26,7 @@ public interface GuiaRepositorio extends JpaRepository<Guia, Long> {
    //Buscar por tipo de tour
    public List<Guia>findByDisponibilidadDia(String tipo_tour);
    //Buscar por tipo de tour
-   public List<Guia>findByTipoTour(String tipo_tour);
+//   public List<Guia>findByTipoTour(String tipo_tour);
    
    
-}*/
+}

@@ -52,9 +52,10 @@ public class Guia {
     @OneToMany
     private List<Idioma> idiomas;
     //Agregamos tipo tour
+//    @OneToMany
     @Enumerated(EnumType.STRING)
-    private List<Tipo_tour> tipos_tour;
-    
+    private Tipo_tour tipo_tour;
+    @OneToOne
     private Foto foto;
     
     // Constructores
@@ -372,13 +373,21 @@ public class Guia {
         this.idiomas = idiomas;
     }
 
-    public List<Tipo_tour> getTipos_tour() {
-        return tipos_tour;
+    /**
+     * @return the tipo_tour
+     */
+    public Tipo_tour getTipo_tour() {
+        return tipo_tour;
     }
 
-    public void setTipos_tour(List<Tipo_tour> tipos_tour) {
-        this.tipos_tour = tipos_tour;
+    /**
+     * @param tipo_tour the tipo_tour to set
+     */
+    public void setTipo_tour(Tipo_tour tipo_tour) {
+        this.tipo_tour = tipo_tour;
     }
+
+    
     
     
     
