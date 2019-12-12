@@ -39,9 +39,13 @@ public class GuiaServicio implements UserDetailsService{
         guia.setEmail(email);
         String encriptada = new BCryptPasswordEncoder().encode(clave);
         guia.setClave(encriptada);
+        if (!archivo.isEmpty()){
+            Foto foto= fotoServicio.guardar(archivo);
+            guia.setFoto(foto);
+        }else {
+            archivo=null;
+        }
         
-        Foto foto= fotoServicio.guardar(archivo);
-        guia.setFoto(foto);
         
         guiaRepositorio.save(guia);
     }

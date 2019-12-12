@@ -19,7 +19,9 @@ import org.springframework.web.multipart.MultipartFile;
 @Controller
 @RequestMapping("/")
 public class PortalControlador {
-    @GetMapping("/")
+    
+    
+    @GetMapping({"/","/home"})
     public String index(){
         return "index.html";
     }
@@ -29,10 +31,10 @@ public class PortalControlador {
     GuiaServicio gs;
     
     @PostMapping("/crear")
-    public String crear( @RequestParam(value="dni") long dni,@RequestParam(value="nombre") String nombre, @RequestParam(value="apellido") String apellido, 
+    public String crear(@RequestParam(required=false,value="imagen") MultipartFile archivo,@RequestParam(value="dni") long dni,@RequestParam(value="nombre") String nombre, @RequestParam(value="apellido") String apellido, 
             @RequestParam(value="mail") String mail,@RequestParam(value="contrasena") String contrasena)throws ErrorServicio, IOException{
         try {
-            gs.registrarGuia(null, dni, nombre, apellido, mail, contrasena);
+            gs.registrarGuia(archivo,dni, nombre, apellido, mail, contrasena);
         }catch (ErrorServicio e){
             e.printStackTrace();
             System.out.println("Faltan datos");
