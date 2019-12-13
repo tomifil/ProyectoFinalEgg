@@ -13,9 +13,9 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface GuiaRepositorio extends JpaRepository<Guia, Long> {
    @Query( "SELECT c FROM Guia c WHERE c.dni = :dni ") 
-   public List<Guia> buscarPorGuia (@Param("dni") String dni);
+   public List<Guia> buscarPorGuia (@Param("dni") Long dni);
 
-//    public Optional<Guia> findById(String id);
+/*    public Optional<Guia> findById(String id);
    //Buscar por idioma
    public List<Guia>findByIdioma(List<Idioma> idiomas);
    //Buscar por Direccion0
@@ -27,7 +27,10 @@ public interface GuiaRepositorio extends JpaRepository<Guia, Long> {
    //Buscar por tipo de tour
    public List<Guia>findByDisponibilidadDia(String tipo_tour);
    //Buscar por tipo de tour
+   */
    //public List<Guia>findByTipoTour(String tipo_tour);
+//   public List<Guia>findByTipoTour(String tipo_tour);
+
    
    
 }
