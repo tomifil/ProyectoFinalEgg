@@ -59,12 +59,12 @@ public class PortalControlador {
     }
 
 //Login de EVT
-    @Autowired
+   /*   @Autowired
     EvtRepositorio evtRepositorio;
 
     @PostMapping("/index.html")
     public String ingresar(@RequestParam(value = "mail") String mail, @RequestParam(value = "contrasena") String clave) throws ErrorServicio {
-  /*      try {
+      try {
             evtRepositorio.buscarPorMail(mail);
             evtRepositorio.buscarPorClave(clave);
 
@@ -73,9 +73,9 @@ public class PortalControlador {
             System.out.println("Usuario o contraseña incorrecta");
         }
         
-        */
-
+       
         return "/ingresoevt.html"; 
     }
+ */
 
 }
