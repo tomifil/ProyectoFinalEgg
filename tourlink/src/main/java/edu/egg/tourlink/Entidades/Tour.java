@@ -9,6 +9,7 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import org.hibernate.annotations.GenericGenerator;
@@ -25,7 +26,7 @@ public class Tour {
     private Date fecha;
     private String horario;
 
-    @Enumerated(EnumType.STRING)
+    @OneToOne
     private Tipo_tour tipo_tour;
     
     @OneToMany
@@ -65,22 +66,8 @@ public class Tour {
 
     public void setHorario(String horario) {
         this.horario = horario;
+    
     }
-
-    /**
-     * @return the tipo_tour
-     */
-    public Tipo_tour getTipo_tour() {
-        return tipo_tour;
-    }
-
-    /**
-     * @param tipo_tour the tipo_tour to set
-     */
-    public void setTipo_tour(Tipo_tour tipo_tour) {
-        this.tipo_tour = tipo_tour;
-    }
-
     /**
      * @return the idiomas
      */
@@ -121,6 +108,20 @@ public class Tour {
      */
     public void setId(String id) {
         this.id = id;
+    }
+
+    /**
+     * @return the tipo_tour
+     */
+    public Tipo_tour getTipo_tour() {
+        return tipo_tour;
+    }
+
+    /**
+     * @param tipo_tour the tipo_tour to set
+     */
+    public void setTipo_tour(Tipo_tour tipo_tour) {
+        this.tipo_tour = tipo_tour;
     }
     
 
