@@ -4,7 +4,7 @@ import edu.egg.tourlink.Enumeraciones.Disponibilidad_dia;
 import edu.egg.tourlink.Enumeraciones.Disponibilidad_turno;
 import edu.egg.tourlink.Enumeraciones.Estado;
 import edu.egg.tourlink.Enumeraciones.Sexo;
-import edu.egg.tourlink.Enumeraciones.Tipo_tour;
+import edu.egg.tourlink.entidades.Tipo_tour;
 import java.util.Date;
 import java.util.List;
 import javax.persistence.Entity;
@@ -19,7 +19,9 @@ import javax.persistence.TemporalType;
 
 @Entity
 public class Guia {
+
     // Atributos
+
     @Id
     private long dni;
     private String nombre;
@@ -34,34 +36,34 @@ public class Guia {
     private String rrss_instagram;
     private String rrss_linkedin;
     private String clave;
-    
+
     @Temporal(TemporalType.TIMESTAMP)
     private Date fechaNacimiento;
-    
+
     @Enumerated(EnumType.STRING)  // F, M, Otro
     private Sexo sexo;
     @Enumerated(EnumType.STRING)  // lun, mar, mier, jue, vie, sab, dom
-    private Disponibilidad_dia disponibilidad_dia; 
+    private Disponibilidad_dia disponibilidad_dia;
     @Enumerated(EnumType.STRING)  // HD Mañana, HD Tarde, FD
     private Disponibilidad_turno disponibilidad_turno;
     @Enumerated(EnumType.STRING)  // Activo o inactivo
     private Estado estado;
     @OneToMany
-    private List<Aptitud> aptitudes; 
+    private List<Aptitud> aptitudes;
     //Agregamos idioma(May,Fran)
     @OneToMany
     private List<Idioma> idiomas;
     //Agregamos tipo tour
 //    @OneToMany
-    @Enumerated(EnumType.STRING)
-
+    @OneToMany
     private List<Tipo_tour> tipo_tour;
 
     @OneToOne
     private Foto foto;
-    
+
     // Constructores
-    public Guia(){}
+    public Guia() {
+    }
 
 //    public Guia(long dni, String nombre, String apellido, String email, String direccion, long telefono, String educacion, String experiencia, String extracto, String rrss_facebook, String rrss_instagram, String rrss_linkedin, Date fechaNacimiento, Sexo sexo, Disponibilidad_dia disponibilidad_dia, Disponibilidad_turno disponibilidad_turno, Estado estado, List<Aptitud> aptitudes) {
 //        this.dni = dni;
@@ -83,24 +85,21 @@ public class Guia {
 //        this.estado = null;
 //        this.aptitudes = null;
 //    }
-    
-    
     // Getter & Setter
-    
     /**
      * @return the dni
      */
     public long getDni() {
         return dni;
     }
-    
+
     /**
      * @param dni the dni to set
      */
     public void setDni(long dni) {
         this.dni = dni;
     }
-    
+
     /**
      * @return the nombre
      */
@@ -375,23 +374,12 @@ public class Guia {
         this.idiomas = idiomas;
     }
 
-    /**
-     * @return the tipo_tour
-     */
-    public Tipo_tour getTipo_tour() {
+    public List<Tipo_tour> getTipo_tour() {
         return tipo_tour;
     }
 
-    /**
-     * @param tipo_tour the tipo_tour to set
-     */
-    public void setTipo_tour(Tipo_tour tipo_tour) {
+    public void setTipo_tour(List<Tipo_tour> tipo_tour) {
         this.tipo_tour = tipo_tour;
     }
 
-    
-    
-    
-    
 }
-

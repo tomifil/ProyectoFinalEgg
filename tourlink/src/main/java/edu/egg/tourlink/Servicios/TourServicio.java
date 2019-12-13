@@ -5,7 +5,7 @@ import edu.egg.tourlink.Entidades.Calificacion;
 import edu.egg.tourlink.Entidades.EVT;
 import edu.egg.tourlink.Entidades.Idioma;
 import edu.egg.tourlink.Entidades.Tour;
-import edu.egg.tourlink.Enumeraciones.Tipo_tour;
+import edu.egg.tourlink.entidades.Tipo_tour;
 import edu.egg.tourlink.Repositorios.EvtRepositorio;
 import edu.egg.tourlink.Repositorios.TourRepositorio;
 import edu.egg.tourlink.Errores.ErrorServicio;

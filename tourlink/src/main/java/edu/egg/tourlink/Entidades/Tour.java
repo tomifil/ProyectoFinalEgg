@@ -1,6 +1,6 @@
 package edu.egg.tourlink.Entidades;
 
-import edu.egg.tourlink.Enumeraciones.Tipo_tour;
+import edu.egg.tourlink.entidades.Tipo_tour;
 import java.util.Date;
 import java.util.List;
 import javax.persistence.Entity;
