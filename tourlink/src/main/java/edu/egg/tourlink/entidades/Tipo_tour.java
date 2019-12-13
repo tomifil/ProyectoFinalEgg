@@ -5,7 +5,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import org.hibernate.annotations.GenericGenerator;
     
-    @Entity
+@Entity
 public class Tipo_tour {
     
 // Atributos

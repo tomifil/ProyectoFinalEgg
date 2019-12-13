@@ -54,7 +54,6 @@ public class Guia {
     @OneToMany
     private List<Idioma> idiomas;
     //Agregamos tipo tour
-//    @OneToMany
     @OneToMany
     private List<Tipo_tour> tipo_tour;
 
