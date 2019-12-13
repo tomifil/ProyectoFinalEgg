@@ -78,6 +78,8 @@ public class TourServicio {
                 throw new ErrorServicio("No se encontro el Tour solicitada");
             }
         }
+    
+    
         
     public void validar(Tipo_tour tipo_tour, List<Idioma> idiomas,  Date fecha,String horario) throws ErrorServicio {
         if (tipo_tour == null) {

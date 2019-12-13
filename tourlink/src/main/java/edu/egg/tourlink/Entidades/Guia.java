@@ -55,6 +55,7 @@ public class Guia {
     @Enumerated(EnumType.STRING)
     private List<Tipo_tour> tipos_tour;
     
+    @OneToOne
     private Foto foto;
     
     // Constructores
