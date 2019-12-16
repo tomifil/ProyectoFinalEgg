@@ -63,7 +63,7 @@
         </div>
         <div class="modal-body">
 <!--  id, razon_social, telefono, email, clave  -->
-            <form id="formulario" class="form-inicio" method="POST" action="crear" enctype="multipart/form-data">
+            <form id="formulario" class="form-inicio" method="POST" action="crearGuia" enctype="multipart/form-data">
             <div class="form-group">
               <label for="nombre">Nombre</label>
               <input type="text" class="form-control" id="nombre" aria-describedby="emailHelp" placeholder="Ingrese su nombre" name="nombre">              
@@ -159,26 +159,26 @@
   <header class="masthead">
     
     <div class="jumbotron login" >
-	    <div class="jumbotron_body">
-		    <div class="container">
-		    <div class="row justify-content-center ">
-			    <div class="col-xs-10 col-md-4 col-md-offset-4 col-xs-offset-1 body-form">					
-						<div class="main-wrapper-form">
-							<div class="wrapper-form">
-								<form action="" method="POST">
-									<h3 class="form-head">¡Bienvenidos!</h3>
-									<label for="usuario" class="label-login">Usuario</label><br>
-									<input type="text" name="nombreUsuario" class="form-control" id="nombre" required="" aria-required="true"><br>
-      						<!-- <p class="help-block error hidden">Ingresá tu nombre</p> -->
-								  <label for="contraseña" class="label-login">Contraseña</label><br>
-								  <div class="form-group item-form">
-								   <input id="" name="Password" type="password" class="form-control" maxlength="15">
-								   <!-- <p class="help-block error hidden">La contraseña ingresada no es correcta</p> -->
-									<input type="submit" name="ingresar" value="INGRESAR" class="btn btn-success" id="btn-ingresar">								
-                </div></form>
+      <div class="jumbotron_body">
+                <div class="container">
+                    <div class="row justify-content-center ">
+                        <div class="col-xs-10 col-md-4 col-md-offset-4 col-xs-offset-1 body-form">					
+                            <div class="main-wrapper-form">
+                                <div class="wrapper-form">
+                                <form action="login" method="POST">
+                                        <h3 class="form-head">¡Bienvenidos!</h3>
+                                        <label for="email" class="label-login">Email</label><br>
+                                        <input type="text" name="email" class="form-control" id="email" required="" aria-required="true"><br>
+
+                                  <label for="clave" class="label-login">Contraseña</label><br>
+                                  <div class="form-group item-form">
+                                   <input id="" name="contrasena" type="password" class="form-control" maxlength="15">
+                                  <input type="submit"  value="INGRESAR" class="btn btn-success" id="btn-ingresar">								               
+                                  </div>
+                                </form>
+                </div>
               </div>
             </div>
-          </div>
           </div>
         </div>
       </div>

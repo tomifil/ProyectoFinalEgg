@@ -75,7 +75,7 @@ public class PortalControlador {
     }
 
    
-    @GetMapping("/login")
+    @PostMapping("/login")
     public String ingresar(@RequestParam(value = "email") String email, @RequestParam(value = "contrasena") String clave, ModelMap modelo) throws ErrorServicio {
       
         if (usRep.buscarPorMail(email) != null){ 
@@ -96,6 +96,6 @@ public class PortalControlador {
                 
             }
         }
-          return "redirect:/loginGuia";
+          return "redirect:/login";
     }
 }
