@@ -32,7 +32,7 @@ public class GuiaServicio implements UserDetailsService{
     private FotoServicio fotoServicio;
     
     @Autowired
-    private edu.egg.tourlink.servicios.UsuarioServicio us;
+    private UsuarioServicio us;
  
 @Transactional
     public void registrarGuia(MultipartFile archivo, long dni, String nombre, String apellido, String email, String clave) throws ErrorServicio, IOException{
@@ -43,8 +43,7 @@ public class GuiaServicio implements UserDetailsService{
         guia.setNombre(nombre);
         guia.setApellido(apellido);
         
-//        String encriptada = new BCryptPasswordEncoder().encode(clave);
-//        guia.setClave(encriptada);
+
         if (!archivo.isEmpty()){
             Foto foto= fotoServicio.guardar(archivo);
             guia.setFoto(foto);
