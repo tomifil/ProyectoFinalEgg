@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" >
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <title>TOURLINK</title>
+  <!-- Bootstrap core CSS -->
+  <link href="css/bootstrap.css" rel="stylesheet">
+  <!-- Custom fonts for this template -->
+  <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/simple-line-icons.css">
+  <link rel="stylesheet" href="css/all.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet">
+  <!-- Plugin CSS -->
+  <link rel="stylesheet" href="css/device-mockups.min.css">
+  <!-- Custom styles for this template -->
+  <link href="css/new-age.css" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+
+<body id="page-top">
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+    <div class="container">
+      <a class="navbar-brand js-scroll-trigger" href="#page-top"></a>
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive"  aria-label="Toggle navigation">
+        Menu
+        <i class="fas fa-bars"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <button type="button" class="btn btn-outline btn-xl" data-toggle="modal" data-target="#exampleModal01">
+              REGISTRARME COMO EVT
+            </button>
+
+          </li>               
+          <li class="nav-item">
+            <button type="button" class="btn btn-outline btn-xl" data-toggle="modal" data-target="#exampleModal">
+              REGISTRARME COMO GUÍA
+            </button>
+
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+
+  <!-- Modal para REGISTRO DE GUIAS -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">¡Bienvenido!</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+<!--  id, razon_social, telefono, email, clave  -->
+            <form id="formulario" class="form-inicio" method="POST" action="crear" enctype="multipart/form-data">
+            <div class="form-group">
+              <label for="nombre">Nombre</label>
+              <input type="text" class="form-control" id="nombre" aria-describedby="emailHelp" placeholder="Ingrese su nombre" name="nombre">              
+              <small id="emailHelp" class="form-text text-muted"></small>
+            </div>
+            <div class="form-group">
+              <label for="apellido">Apellido</label>
+              <input type="text" class="form-control" id="apellido"  placeholder="Apellido" name="apellido">             
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" class="form-control" id="email" placeholder="Email" name="mail">
+            </div>
+            <div class="form-group">
+              <label for="dni">Dni</label>
+              <input type="number" class="form-control" id="dni" placeholder="Nro de Documento" name="dni">
+            </div>
+            <div class="form-group">
+              <label for="imagen">Imagen de perfil</label>
+              <input type="file" class="form-control-file" id="imagen" name="imagen">              
+            </div>
+            <div class="form-group">
+              <label for="contrasena">Contraseña</label>
+              <input type="password" class="form-control" id="contrasena" name="contrasena">
+            </div>
+          </form>
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-warning" data-dismiss="modal">Cerrar</button>
+          <button type="submit" form="formulario" class="btn btn-success">Guardar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Cierra modal para REGISTRO GUIAS -->
+  
+  
+    <!-- Modal para REGISTRO DE EVT -->
+  <div class="modal fade" id="exampleModal01" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">¡Bienvenido!</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+<!--  id, razon_social, telefono, email, clave  -->
+            <form id="formularioEvt" class="form-inicio" method="POST" action="crearEvt" enctype="multipart/form-data">
+            <div class="form-group">
+              <label for="nombre">Nombre</label>
+              <input type="text" class="form-control" id="nombre" aria-describedby="emailHelp" placeholder="Ingrese su nombre" name="razon_social">              
+              <small id="emailHelp" class="form-text text-muted"></small>
+            </div>
+            <div class="form-group">
+              <label for="legajo">Legajo</label>
+              <input type="number" class="form-control" id="legajo"  placeholder="Legajo" name="legajo_id">             
+            </div>
+            <div class="form-group">
+              <label for="direccion">Dirección</label>
+              <input type="text" class="form-control" id="direccion"  placeholder="Direccion" name="direccion">             
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" class="form-control" id="email" placeholder="Email" name="email">
+            </div>
+            <div class="form-group">
+              <label for="telefono">Teléfono</label>
+              <input type="number" class="form-control" id="telefono" placeholder="Ingrese teléfono" name="telefono">
+            </div>
+            <div class="form-group">
+              <label for="imagen">Imagen de perfil</label>
+              <input type="file" class="form-control-file" id="imagen" name="imagen">              
+            </div>
+            <div class="form-group">
+              <label for="contrasena">Contraseña</label>
+              <input type="password" class="form-control" id="contrasena" name="contrasena">
+            </div>
+          </form>
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-warning" data-dismiss="modal">Cerrar</button>
+          <button type="submit" form="formularioEvt" class="btn btn-success">Guardar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Cierra modal para REGISTRO EVT -->
+
+  <header class="masthead">
+    <div class="container">
+      <div class="row">
+          <div class="col-12">
+              <div class="card">
+
+                  <div class="card-body">
+                      <div class="card-title mb-4">
+                          <div class="d-flex justify-content-start">
+                              <div class="image-container">
+                                  <img src="http://placehold.it/150x150" id="imgProfile" style="width: 150px; height: 150px" class="img-thumbnail" />
+                                  <div class="middle">
+                                      <input type="button" class="btn btn-secondary" id="btnChangePicture" value="Change" />
+                                      <input type="file" style="display: none;" id="profilePicture" name="file" />
+                                  </div>
+                              </div>
+                              <div class="userData ml-3">
+                                  <h2 class="d-block" style="font-size: 1.5rem; font-weight: bold"><a href="javascript:void(0);">Some Name</a></h2>
+                                  <h6 class="d-block"><a href="javascript:void(0)">1,500</a> Video Uploads</h6>
+                                  <h6 class="d-block"><a href="javascript:void(0)">300</a> Blog Posts</h6>
+                              </div>
+                              <div class="ml-auto">
+                                  <input type="button" class="btn btn-primary d-none" id="btnDiscard" value="Discard Changes" />
+                              </div>
+                          </div>
+                      </div>
+
+                      <div class="row">
+                          <div class="col-12">
+                              <ul class="nav nav-tabs mb-4" id="myTab" role="tablist">
+                                  <li class="nav-item">
+                                      <a class="nav-link active" id="basicInfo-tab" data-toggle="tab" href="#basicInfo" role="tab" aria-controls="basicInfo" aria-selected="true">Basic Info</a>
+                                  </li>
+                                  <li class="nav-item">
+                                      <a class="nav-link" id="connectedServices-tab" data-toggle="tab" href="#connectedServices" role="tab" aria-controls="connectedServices" aria-selected="false">Connected Services</a>
+                                  </li>
+                              </ul>
+                              <div class="tab-content ml-1" id="myTabContent">
+                                  <div class="tab-pane fade show active" id="basicInfo" role="tabpanel" aria-labelledby="basicInfo-tab">
+                                      
+
+                                      <div class="row">
+                                          <div class="col-sm-3 col-md-2 col-5">
+                                              <label style="font-weight:bold;">Full Name</label>
+                                          </div>
+                                          <div class="col-md-8 col-6">
+                                              Jamshaid Kamran
+                                          </div>
+                                      </div>
+                                      <hr />
+
+                                      <div class="row">
+                                          <div class="col-sm-3 col-md-2 col-5">
+                                              <label style="font-weight:bold;">Birth Date</label>
+                                          </div>
+                                          <div class="col-md-8 col-6">
+                                              March 22, 1994.
+                                          </div>
+                                      </div>
+                                      <hr />
+                                      
+                                      
+                                      <div class="row">
+                                          <div class="col-sm-3 col-md-2 col-5">
+                                              <label style="font-weight:bold;">Something</label>
+                                          </div>
+                                          <div class="col-md-8 col-6">
+                                              Something
+                                          </div>
+                                      </div>
+                                      <hr />
+                                      <div class="row">
+                                          <div class="col-sm-3 col-md-2 col-5">
+                                              <label style="font-weight:bold;">Something</label>
+                                          </div>
+                                          <div class="col-md-8 col-6">
+                                              Something
+                                          </div>
+                                      </div>
+                                      <hr />
+                                      <div class="row">
+                                          <div class="col-sm-3 col-md-2 col-5">
+                                              <label style="font-weight:bold;">Something</label>
+                                          </div>
+                                          <div class="col-md-8 col-6">
+                                              Something
+                                          </div>
+                                      </div>
+                                      <hr />
+
+                                  </div>
+                                  <div class="tab-pane fade" id="connectedServices" role="tabpanel" aria-labelledby="ConnectedServices-tab">
+                                      Facebook, Google, Twitter Account that are connected to this account
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+
+
+                  </div>
+
+              </div>
+          </div>
+      </div>
+  </div>
+  </header>
+
+<!--  <section class="download bg-primary text-center" id="download">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8 mx-auto">
+          <h2 class="section-heading">Lorem ipsum dolor sit amet</h2>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+          <div class="badges">
+            <a class="badge-link" href="#"><img src="img/google-play-badge.svg" alt=""></a>
+            <a class="badge-link" href="#"><img src="img/app-store-badge.svg" alt=""></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>-->
+
+<!--  <section class="features" id="features">
+    <div class="container">
+      <div class="section-heading text-center">
+        <h2>Lorem ipsum dolor sit amet</h2>
+        <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+        <hr>
+      </div>
+      <div class="row">
+        <div class="col-lg-4 my-auto">
+          <div class="device-container">
+            <div class="device-mockup iphone6_plus portrait white">
+              <div class="device">
+                <div class="screen">
+                   Demo image for screen mockup, you can put an image here, some HTML, an animation, video, or anything else! 
+                  <img src="img/07.jpg" class="img-fluid" alt="">
+                </div>
+                <div class="button">
+                   You can hook the "home button" to some JavaScript events or just remove it 
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-8 my-auto">
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-lg-6">
+                <div class="feature-item">
+                  <i class="icon-screen-smartphone text-primary"></i>
+                  <h3>Lorem ipsum dolor </h3>
+                  <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                </div>
+              </div>
+              <div class="col-lg-6">
+                <div class="feature-item">
+                  <i class="icon-camera text-primary"></i>
+                  <h3>Lorem ipsum dolor sit amet</h3>
+                  <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-lg-6">
+                <div class="feature-item">
+                  <i class="icon-present text-primary"></i>
+                  <h3>Lorem ipsum dolor sit amet</h3>
+                  <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                </div>
+              </div>
+              <div class="col-lg-6">
+                <div class="feature-item">
+                  <i class="icon-lock-open text-primary"></i>
+                  <h3>Lorem ipsum dolor sit amet</h3>
+                  <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>-->
+
+<!--  <section class="cta">
+    <div class="cta-content">
+      <div class="container">
+        <h2>Lorem ipsum dolor sit amet<br>Lorem ipsum dolor sit amet</h2>
+        <a href="#contact" class="btn btn-outline btn-xl js-scroll-trigger">Lorem ipsum dolor sit amet</a>
+      </div>
+    </div>
+    <div class="overlay"></div>
+  </section>-->
+
+<!--  <section class="contact bg-primary" id="contact">
+    <div class="container">
+      <h2>We
+        <i class="fas fa-heart"></i>
+        new friends!</h2>
+      <ul class="list-inline list-social">
+        <li class="list-inline-item social-twitter">
+          <a href="#">
+            <i class="fab fa-twitter"></i>
+          </a>
+        </li>
+        <li class="list-inline-item social-facebook">
+          <a href="#">
+            <i class="fab fa-facebook-f"></i>
+          </a>
+        </li>
+        <li class="list-inline-item social-google-plus">
+          <a href="#">
+            <i class="fab fa-google-plus-g"></i>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </section>-->
+
+  <footer>
+    <div class="container">
+      <p>&copy; Your Website 2019. All Rights Reserved.</p>
+      <ul class="list-inline">
+        <li class="list-inline-item">
+          <a href="#">Privacy</a>
+        </li>
+        <li class="list-inline-item">
+          <a href="#">Terms</a>
+        </li>
+        <li class="list-inline-item">
+          <a href="#">FAQ</a>
+        </li>
+      </ul>
+    </div>
+  </footer>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="js/jquery.min.js"></script>
+  <script src="js/bootstrap.bundle.min.js"></script>
+
+  <!-- Plugin JavaScript -->
+  <script src="js/jquery.easing.min.js"></script>
+
+  <!-- Custom scripts for this template -->
+  <script src="js/new-age.min.js"></script>
+  <script src="js/main.js"></script>
+</body>
+
+</html>
+
