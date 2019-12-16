@@ -36,8 +36,7 @@ public class EVTServicio {
         
         Foto foto = fotoServicio.guardar(archivo);
         evt.setFoto(foto);
-        
-        
+            
         evtRepositorio.save(evt);
         
     }
@@ -53,7 +52,7 @@ public class EVTServicio {
             evt.setRazon_social(razon_social);
             evt.setDireccion(direccion);
             evt.setTelefono(telefono);
-            
+           
             String idFoto = null;
             if (evt.getFoto() != null){
                 idFoto = evt.getFoto().getId();

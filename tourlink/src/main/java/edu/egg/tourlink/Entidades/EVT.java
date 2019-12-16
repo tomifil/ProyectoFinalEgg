@@ -30,12 +30,11 @@ public class EVT {
     private String direccion;
     private long telefono;
     private String sitio_web;
-  //  private String email;
     private String horario_atencion;
     private String rrss_facebook;
     private String rrss_instagram;
     private String rrss_linkedin;
-  //  private String clave;
+
 
     @Enumerated(EnumType.STRING) //Si tiene, no tiene,(o no sabe si tiene) transporte.
     private Transporte transporte;
