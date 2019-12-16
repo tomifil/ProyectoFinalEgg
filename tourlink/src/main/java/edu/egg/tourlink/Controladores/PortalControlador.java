@@ -87,15 +87,15 @@ public class PortalControlador {
                 if (usuario.getRol() == Rol.Guia){
                     Guia guia = guiaRepositorio.buscarGuia(usuario.getId());
                     modelo.put("guia",guia);
-                return "/editarGuia.html";  
+                return "editarGuia.html";  
                 } else {
                     EVT evt = evtRepositorio.buscarEvt(usuario.getId());
                     modelo.put("evt", evt);
-                    return "/editarEvt.html";
+                    return "editarEvt.html";
                 }
                 
             }
         }
-          return "redirect:/login";
+          return "redirect:/home";
     }
 }
