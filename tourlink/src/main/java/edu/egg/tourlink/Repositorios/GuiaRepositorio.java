@@ -12,8 +12,12 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface GuiaRepositorio extends JpaRepository<Guia, Long> {
-   @Query( "SELECT c FROM Guia c WHERE c.dni = :dni ") 
-   public List<Guia> buscarPorGuia (@Param("dni") Long dni);
+    
+    @Query("SELECT c FROM Guia c WHERE c.usuario.email = :email")
+    public Guia buscarPorMail(@Param("email")String email);
+    
+//    @Query("SELECT c FROM Guia c WHERE c.clave = :clave")
+ //   public Guia buscarPorClave(@Param("clave")String clave);
 
 /*    public Optional<Guia> findById(String id);
    //Buscar por idioma

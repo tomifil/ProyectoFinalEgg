@@ -5,13 +5,18 @@
  */
 package edu.egg.tourlink.Controladores;
 
+import edu.egg.tourlink.Entidades.EVT;
+import edu.egg.tourlink.Entidades.Guia;
 import edu.egg.tourlink.Errores.ErrorServicio;
 import edu.egg.tourlink.Repositorios.EvtRepositorio;
+import edu.egg.tourlink.Repositorios.GuiaRepositorio;
 import edu.egg.tourlink.Servicios.EVTServicio;
 import edu.egg.tourlink.Servicios.GuiaServicio;
 import java.io.IOException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -59,23 +64,37 @@ public class PortalControlador {
     }
 
 //Login de EVT
-   /*   @Autowired
-    EvtRepositorio evtRepositorio;
+/*      @Autowired
+    EvtRepositorio evtRep;
 
-    @PostMapping("/index.html")
-    public String ingresar(@RequestParam(value = "mail") String mail, @RequestParam(value = "contrasena") String clave) throws ErrorServicio {
-      try {
-            evtRepositorio.buscarPorMail(mail);
-            evtRepositorio.buscarPorClave(clave);
-
-        } catch (ErrorServicio e) {
-            e.printStackTrace();
-            System.out.println("Usuario o contraseña incorrecta");
+    @PostMapping("/")
+    public String ingresarEvt(@RequestParam(value = "mail") String mail, @RequestParam(value = "contrasena") String clave) throws ErrorServicio {
+      
+        if (evtRep.buscarPorMail(mail) != null) { 
+            EVT evt = evtRep.buscarPorMail(mail);
+            
+            if(evt.getClave().equals(clave)){
+                return "/editarEvt.html";
+            }
         }
-        
-       
-        return "/ingresoevt.html"; 
+          return "index.html";
     }
- */
+*/
+    //Login de Guia
+      @Autowired
+      GuiaRepositorio guiaRep;
 
+    @GetMapping("/login")
+    public String ingresarGuia(@RequestParam(value = "email") String email, @RequestParam(value = "contrasena") String clave, ModelMap modelo) throws ErrorServicio {
+      
+        if (guiaRep.buscarPorMail(email) != null){ 
+            Guia  guia = guiaRep.buscarPorMail(email);
+            
+            if(new BCryptPasswordEncoder().matches(clave, guia.getUsuario().getClave())){
+                modelo.put("guia",guia);
+                return "/editarGuia.html";
+            }
+        }
+          return "redirect:/loginGuia";
+    }
 }

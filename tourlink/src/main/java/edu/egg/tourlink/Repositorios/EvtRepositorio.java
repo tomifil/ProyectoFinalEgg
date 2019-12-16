@@ -1,4 +1,5 @@
 
+
 package edu.egg.tourlink.Repositorios;
 
 import edu.egg.tourlink.Entidades.EVT;
@@ -9,11 +10,11 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface EvtRepositorio extends JpaRepository<EVT, String>{
-//    @Query("SELECT c FROM EVT c WHERE c.legajo_id = :legajo_id")
-//    public EVT buscarPorLegajo(@Param("legajo_id")int legajo_id);
-//    @Query("SELECT c FROM Usuario c WHERE c.mail = :mail")
-  //  public EVT buscarPorMail(@Param("mail")String mail);
+    @Query("SELECT c FROM EVT c WHERE c.legajo_id = :legajo_id")
+    public EVT buscarPorLegajo(@Param("legajo_id")int legajo_id);
+  // @Query("SELECT c FROM EVT c WHERE c.email = :email")
+ //  public EVT buscarPorMail(@Param("mail")String email);
+ //   @Query("SELECT c FROM EVT c WHERE c.clave = :clave")
+ //  public EVT buscarPorClave(@Param("clave")String clave);
     
-   // @Query("SELECT c FROM Usuario c WHERE c.clave = :clave")
- //   public EVT buscarPorClave(@Param("clave")String clave);
 }

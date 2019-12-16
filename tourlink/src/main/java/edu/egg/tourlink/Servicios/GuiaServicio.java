@@ -4,6 +4,8 @@ import edu.egg.tourlink.Entidades.Foto;
 import edu.egg.tourlink.Entidades.Guia;
 import edu.egg.tourlink.Repositorios.GuiaRepositorio;
 import edu.egg.tourlink.Errores.ErrorServicio;
+import edu.egg.tourlink.entidades.Usuario;
+import edu.egg.tourlink.enumeraciones.Rol;
 import java.io.IOException;
 import java.util.Date;
 import java.util.Optional;
@@ -28,6 +30,9 @@ public class GuiaServicio implements UserDetailsService{
     
     @Autowired
     private FotoServicio fotoServicio;
+    
+    @Autowired
+    private edu.egg.tourlink.servicios.UsuarioServicio us;
  
 @Transactional
     public void registrarGuia(MultipartFile archivo, long dni, String nombre, String apellido, String email, String clave) throws ErrorServicio, IOException{
@@ -37,9 +42,9 @@ public class GuiaServicio implements UserDetailsService{
         guia.setDni(dni);
         guia.setNombre(nombre);
         guia.setApellido(apellido);
-        guia.setEmail(email);
-        String encriptada = new BCryptPasswordEncoder().encode(clave);
-        guia.setClave(encriptada);
+        
+//        String encriptada = new BCryptPasswordEncoder().encode(clave);
+//        guia.setClave(encriptada);
         if (!archivo.isEmpty()){
             Foto foto= fotoServicio.guardar(archivo);
             guia.setFoto(foto);
@@ -48,6 +53,8 @@ public class GuiaServicio implements UserDetailsService{
             guia.setFoto(null);
         }
         
+        Usuario u = us.registrarUsuario(email, clave, Rol.Guia);
+        guia.setUsuario(u);
         
         guiaRepositorio.save(guia);
     }
@@ -60,11 +67,7 @@ public class GuiaServicio implements UserDetailsService{
             Guia guia = respuesta.get();
             guia.setNombre(nombre);
             guia.setApellido(apellido);
-            guia.setEmail(email);
-            
-            String encriptada = new BCryptPasswordEncoder().encode(clave);
-            guia.setClave(encriptada);
-            
+
             String idFoto = null;
             if (guia.getFoto() != null ) {
                 idFoto = guia.getFoto().getId();           
