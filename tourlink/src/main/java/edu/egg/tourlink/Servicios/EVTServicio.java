@@ -5,6 +5,8 @@ import edu.egg.tourlink.Entidades.EVT;
 import edu.egg.tourlink.Entidades.Foto;
 import edu.egg.tourlink.Errores.ErrorServicio;
 import edu.egg.tourlink.Repositorios.EvtRepositorio;
+import edu.egg.tourlink.entidades.Usuario;
+import edu.egg.tourlink.enumeraciones.Rol;
 import java.io.IOException;
 import java.util.Optional;
 import javax.transaction.Transactional;
@@ -21,10 +23,13 @@ public class EVTServicio {
     
     @Autowired
     private EvtRepositorio  evtRepositorio;
+    
+     @Autowired
+    private UsuarioServicio  us;
    
     
     
-    public void registrar (MultipartFile archivo,String legajo_id,String razon_social,String direccion,long telefono,String email,String clave) throws ErrorServicio, IOException{
+    public void registrarEvt (MultipartFile archivo,String legajo_id,String razon_social,String direccion,long telefono,String email,String clave) throws ErrorServicio, IOException{
         
         validar(legajo_id,razon_social,direccion,email,clave);
         
@@ -34,8 +39,16 @@ public class EVTServicio {
         evt.setDireccion(direccion);
         evt.setTelefono(telefono);
         
-        Foto foto = fotoServicio.guardar(archivo);
-        evt.setFoto(foto);
+       if (!archivo.isEmpty()){
+            Foto foto= fotoServicio.guardar(archivo);
+            evt.setFoto(foto);
+        }else {
+            Foto foto= new Foto();
+            evt.setFoto(null);
+        }
+       
+       Usuario u = us.registrarUsuario(email, clave, Rol.EVT);
+        evt.setUsuario(u);
             
         evtRepositorio.save(evt);
         
