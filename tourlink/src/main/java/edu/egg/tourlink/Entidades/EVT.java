@@ -5,6 +5,7 @@
  */
 package edu.egg.tourlink.Entidades;
 
+import edu.egg.tourlink.entidades.Usuario;
 import edu.egg.tourlink.Enumeraciones.Transporte;
 import java.util.Date;
 import java.util.List;
@@ -29,12 +30,12 @@ public class EVT {
     private String direccion;
     private long telefono;
     private String sitio_web;
-    private String email;
+  //  private String email;
     private String horario_atencion;
     private String rrss_facebook;
     private String rrss_instagram;
     private String rrss_linkedin;
-    private String clave;
+  //  private String clave;
 
     @Enumerated(EnumType.STRING) //Si tiene, no tiene,(o no sabe si tiene) transporte.
     private Transporte transporte;
@@ -44,41 +45,31 @@ public class EVT {
     @Temporal(TemporalType.TIMESTAMP)
     private Date fecha;
     private String horario;
-    
+   
     @OneToOne
     private Foto foto;
+    
+    @OneToOne
+    private Usuario usuario;
     
     // Constructores
     public EVT() {
     }
 
-    public EVT(String legajo_id, String razon_social, String direccion, long telefono, String sitio_web, String email, String horario_atencion, String rrss_facebook, String rrss_instagram, String rrss_linkedin, Transporte transporte, List<Tour> tours, Date fecha, String horario) {
-        this.legajo_id = legajo_id;
-        this.razon_social = razon_social;
-        this.direccion = direccion;
-        this.telefono = telefono;
-        this.sitio_web = sitio_web;
-        this.email = email;
-        this.horario_atencion = horario_atencion;
-        this.rrss_facebook = rrss_facebook;
-        this.rrss_instagram = rrss_instagram;
-        this.rrss_linkedin = rrss_linkedin;
-        this.transporte = transporte;
-        this.tours = tours;
-        this.fecha = fecha;
-        this.horario = horario;
+    /**
+     * @return the legajo_id
+     */
+    public String getLegajo_id() {
+        return legajo_id;
     }
-
-    
-
-    
-    // Getter & setter 
-
 
     /**
      * @param legajo_id the legajo_id to set
      */
-   
+    public void setLegajo_id(String legajo_id) {
+        this.legajo_id = legajo_id;
+    }
+
     /**
      * @return the razon_social
      */
@@ -133,20 +124,6 @@ public class EVT {
      */
     public void setSitio_web(String sitio_web) {
         this.sitio_web = sitio_web;
-    }
-
-    /**
-     * @return the email
-     */
-    public String getEmail() {
-        return email;
-    }
-
-    /**
-     * @param email the email to set
-     */
-    public void setEmail(String email) {
-        this.email = email;
     }
 
     /**
@@ -205,9 +182,19 @@ public class EVT {
         this.rrss_linkedin = rrss_linkedin;
     }
 
-    
+    /**
+     * @return the transporte
+     */
+    public Transporte getTransporte() {
+        return transporte;
+    }
 
-   
+    /**
+     * @param transporte the transporte to set
+     */
+    public void setTransporte(Transporte transporte) {
+        this.transporte = transporte;
+    }
 
     /**
      * @return the tours
@@ -221,20 +208,6 @@ public class EVT {
      */
     public void setTours(List<Tour> tours) {
         this.tours = tours;
-    }
-
-    /**
-     * @return the transporte
-     */
-    public Transporte getTransporte() {
-        return transporte;
-    }
-
-    /**
-     * @param transporte the transporte to set
-     */
-    public void setTransporte(Transporte transporte) {
-        this.transporte = transporte;
     }
 
     /**
@@ -265,31 +238,32 @@ public class EVT {
         this.horario = horario;
     }
 
-    public String getClave() {
-        return clave;
-    }
-
-    public void setClave(String clave) {
-        this.clave = clave;
-    }
-
+    /**
+     * @return the foto
+     */
     public Foto getFoto() {
         return foto;
     }
 
+    /**
+     * @param foto the foto to set
+     */
     public void setFoto(Foto foto) {
         this.foto = foto;
     }
 
-    public String getLegajo_id() {
-        return legajo_id;
+    /**
+     * @return the usuario
+     */
+    public Usuario getUsuario() {
+        return usuario;
     }
 
-    public void setLegajo_id(String legajo_id) {
-        this.legajo_id = legajo_id;
+    /**
+     * @param usuario the usuario to set
+     */
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
     }
-
-
-    
-    
+  
 }

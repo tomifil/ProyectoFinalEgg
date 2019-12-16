@@ -33,10 +33,6 @@ public class EVTServicio {
         evt.setRazon_social(razon_social);
         evt.setDireccion(direccion);
         evt.setTelefono(telefono);
-        evt.setEmail(email);
-        
-        String encriptada = new BCryptPasswordEncoder().encode(clave);
-        evt.setClave(encriptada);
         
         Foto foto = fotoServicio.guardar(archivo);
         evt.setFoto(foto);
@@ -57,11 +53,6 @@ public class EVTServicio {
             evt.setRazon_social(razon_social);
             evt.setDireccion(direccion);
             evt.setTelefono(telefono);
-            
-            evt.setEmail(email);
-            
-            String encriptada = new BCryptPasswordEncoder().encode(clave);
-            evt.setClave(encriptada);
             
             String idFoto = null;
             if (evt.getFoto() != null){
