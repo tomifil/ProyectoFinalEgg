@@ -156,8 +156,7 @@ header.masthead {
   padding-top: 150px;
   padding-bottom: 100px;
   color: white;
-  background: url("../img/bg-pattern.png"), #7b4397;
-  background: url("../img/bg-pattern.png"), linear-gradient(to left, #7b4397, #dc2430);
+  background: url("../img/img.jpg");
 }
 
 header.masthead .header-content {
@@ -183,7 +182,7 @@ header.masthead .device-container .screen img {
 @media (min-width: 992px) {
   header.masthead {
     height: 100vh;
-    min-height: 775px;
+    /* min-height: 775px; */
     padding-top: 0;
     padding-bottom: 0;
   }
@@ -431,3 +430,75 @@ footer ul li a:hover, footer ul li a:focus, footer ul li a:active, footer ul li 
   font-size: 11px;
   padding: 15px 45px;
 }
+
+
+
+
+/* NUEVOS */
+body{
+  /* padding-top: 68px;
+  padding-bottom: 50px; */
+}
+      .image-container {
+          position: relative;
+      }
+
+      .image {
+          opacity: 1;
+          display: block;
+          width: 100%;
+          height: auto;
+          transition: .5s ease;
+          backface-visibility: hidden;
+      }
+
+      .middle {
+          transition: .5s ease;
+          opacity: 0;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          -ms-transform: translate(-50%, -50%);
+          text-align: center;
+      }
+
+      .image-container:hover .image {
+          opacity: 0.3;
+      }
+
+      .image-container:hover .middle {
+          opacity: 1;
+      }
+      .jumbotron.login{
+        background-color: transparent;
+        min-height: 300px;
+        display: table;
+        height: 100vh;
+        width:100%;
+        padding: 0;
+      }
+      .login .jumbotron_body{
+        display: table-cell;
+        vertical-align: middle;
+      }
+      .body-form {
+        background: rgba(255, 255, 255, .65);
+        padding: 25px;
+      }
+        .form-head {
+          color: black;
+          font-weight: 600;
+          text-align: center;
+          font-size: 2rem;
+      }
+      .label-login {
+          color: black;
+      }
+        input#btn-ingresar {
+          border-radius: 5px;
+          margin: 15px 0 0;
+          position: relative;
+          float: right;
+          padding: 10px 20px;
+        }
