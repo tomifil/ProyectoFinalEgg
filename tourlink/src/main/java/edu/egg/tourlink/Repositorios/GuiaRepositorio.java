@@ -20,7 +20,8 @@ public interface GuiaRepositorio extends JpaRepository<Guia, Long> {
     @Query("SELECT c FROM Guia  c")
     public List buscarTodos();
     
-    
+    @Query("Select c From Guia c WHERE c.nombre LIKE %"+":q"+"%"+ " OR c.apellido LIKE %"+":q"+"%")
+    public List buscarPorNombre(@Param("q") String q);
     
 //    @Query("SELECT c FROM Guia c WHERE c.clave = :clave")
  //   public Guia buscarPorClave(@Param("clave")String clave);

@@ -12,6 +12,7 @@ import edu.egg.tourlink.Servicios.GuiaServicio;
 import edu.egg.tourlink.entidades.Usuario;
 import edu.egg.tourlink.enumeraciones.Rol;
 import java.io.IOException;
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
@@ -108,4 +109,21 @@ public class PortalControlador {
         }
           return "redirect:/home";
     }
+    
+    @PostMapping("/buscarGuias")
+    public String listadoGuias(@RequestParam(required = false) String q, @RequestParam(required = false) String error, ModelMap modelo) {
+        List<Guia> guias;
+        if (q != null && !q.isEmpty()) {
+            guias = guiaRepositorio.buscarPorNombre(q);
+        } else {
+            guias = guiaRepositorio.buscarTodos();
+        }
+        
+        modelo.put("q", q);
+        modelo.put("guias", guias);
+        modelo.put("error", error);
+
+        return "verGuias.html";
+    }
+    
 }
