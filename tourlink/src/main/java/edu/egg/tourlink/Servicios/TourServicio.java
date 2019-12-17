@@ -25,15 +25,15 @@ public class TourServicio {
     
     //Creamos el Tour (chequear calificaciones, si va o no. )
     @Transactional
-    public void agregarTour(String legajo_id,Tipo_tour tipo_tour, List<Idioma> idiomas, /*List<Calificacion> calificaciones,*/ Date fecha,String horario) throws ErrorServicio {
+    public void agregarTour(String legajo_id,Tipo_tour tipo_tour, Idioma idioma, /*List<Calificacion> calificaciones,*/ Date fecha,String horario) throws ErrorServicio {
 
         EVT evt = evtRepositorio.findById(legajo_id).get();
 
-       validar(tipo_tour, idiomas, fecha, horario);
+       validar(tipo_tour, idioma, fecha, horario);
 
         Tour tour = new Tour();
         tour.setTipo_tour(tipo_tour);
-        tour.setIdiomas(idiomas);
+        tour.setIdioma(idioma);
         tour.setFecha(fecha);
         /*tour.setCalificaciones(calificaciones);*/
         tour.setHorario(horario);
@@ -42,9 +42,9 @@ public class TourServicio {
     }
     //Modificar tour.
          @Transactional
-    public void modificarTour(String legajo_id, String id, Tipo_tour tipo_tour, List<Idioma> idiomas,/* List<Calificacion> calificaciones,*/ Date fecha,String horario) throws ErrorServicio {
+    public void modificarTour(String legajo_id, String id, Tipo_tour tipo_tour, Idioma idioma,/* List<Calificacion> calificaciones,*/ Date fecha,String horario) throws ErrorServicio {
 
-        validar(tipo_tour, idiomas, fecha, horario);
+        validar(tipo_tour, idioma, fecha, horario);
 
         Optional<Tour> respuesta = tourRepositorio.findById(id);
         if (respuesta.isPresent()) {
@@ -53,7 +53,7 @@ public class TourServicio {
                 /*tour.setCalificaciones(calificaciones);*/
                 tour.setFecha(fecha);
                 tour.setHorario(horario);
-                tour.setIdiomas(idiomas);
+                tour.setIdioma(idioma);
                 tour.setTipo_tour(tipo_tour);
                 
                 tourRepositorio.save(tour);
@@ -81,12 +81,12 @@ public class TourServicio {
     
     
         
-    public void validar(Tipo_tour tipo_tour, List<Idioma> idiomas,  Date fecha,String horario) throws ErrorServicio {
+    public void validar(Tipo_tour tipo_tour, Idioma idioma,  Date fecha,String horario) throws ErrorServicio {
         if (tipo_tour == null) {
             throw new ErrorServicio("El tipo de tour no puede ser nulo.");
         }
         
-        if (idiomas == null) {
+        if (idioma == null) {
             throw new ErrorServicio("Los idiomas del tour no puede ser nulo.");
         }
         if (horario == null || horario.isEmpty()) {
