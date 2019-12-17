@@ -82,7 +82,7 @@ public class PortalControlador {
             Usuario  usuario = usRep.buscarPorMail(email);
             
             if(new BCryptPasswordEncoder().matches(clave, usuario.getClave())){
-//                modelo.put("usuario",usuario);
+
                 
                 if (usuario.getRol() == Rol.Guia){
                     Guia guia = guiaRepositorio.buscarGuia(usuario.getId());
