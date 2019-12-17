@@ -44,7 +44,10 @@ public class PortalControlador {
     public String guias() {
         return "verGuias.html";
     }
-    
+    @GetMapping("/editarEvt")
+    public String editarEvt() {
+        return "editarEvt.html";
+    }
 
 //    Registro de GUÍA
     @Autowired
