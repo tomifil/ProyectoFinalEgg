@@ -73,6 +73,9 @@ public class PortalControlador {
     
     @Autowired
     EvtRepositorio evtRepositorio;
+    
+    @Autowired
+    TourRepositorio tourRepositorio;
 
     @Autowired
     TipoTourRepositorio tipotourRepositorio;
@@ -165,20 +168,47 @@ public class PortalControlador {
         return "editarEvt.html";
     }
 
-    @PostMapping("/crearTour")
-    public String crearTour(@RequestParam (value = "legajo_id") String legajo_id,@RequestParam (value = "tipo_tour")Tipo_tour tipo_tour,@RequestParam (value = "idiomas") List<Idioma> idiomas, /*List<Calificacion> calificaciones,*/@RequestParam (value = "fecha") Date fecha,@RequestParam (value = "horario")String horario){
-        
+    
+        @PostMapping("/crearTour")
+    public String crearTour(@RequestParam(value = "legajo_id") String legajo_id, @RequestParam(value = "tipo_tour") Tipo_tour tipo_tour, @RequestParam(value = "idioma") Idioma idioma, /*List<Calificacion> calificaciones,*/ @RequestParam(value = "fecha") Date fecha, @RequestParam(value = "horario") String horario) throws ErrorServicio {
+
         try {
-        tourServicio.agregarTour(legajo_id, tipo_tour, idiomas, fecha, horario);    
+            tourServicio.agregarTour(legajo_id, tipo_tour, idioma, fecha, horario);
         } catch (ErrorServicio e) {
             e.printStackTrace();
             System.out.println("Faltan datos");
         }
         return "editarEvt.html";
     }
-    
-    
-    
-    
+
+    @PostMapping("/modificarTour")
+    public String modificarTour(@RequestParam(value = "id") String id, @RequestParam(value = "legajo_id") String legajo_id, @RequestParam(value = "tipo_tour") Tipo_tour tipo_tour, @RequestParam(value = "idioma") Idioma idioma, /*List<Calificacion> calificaciones,*/ @RequestParam(value = "fecha") Date fecha, @RequestParam(value = "horario") String horario) throws ErrorServicio {
+
+        if (tourRepositorio.findById(id) != null) {
+            try {
+                tourServicio.modificarTour(legajo_id, id, tipo_tour, idioma, fecha, horario);
+            } catch (ErrorServicio e) {
+                e.printStackTrace();
+                System.out.println("Faltan datos");
+
+            }
+        }
+        return "editarEvt.html";
+    }
+   
+    @PostMapping("/eliminarTour")
+    public String eliminarTour( @RequestParam(value = "legajo_id") String legajo_id, @RequestParam(value = "id") String id) throws ErrorServicio {
+
+        if (tourRepositorio.findById(id) != null) {
+            try {
+                tourServicio.eliminarTour(legajo_id, id);
+            } catch (ErrorServicio e) {
+                e.printStackTrace();
+                System.out.println("Datos Incorrectos");
+
+            }
+        }
+        return "editarEvt.html";
+    }
 
 }

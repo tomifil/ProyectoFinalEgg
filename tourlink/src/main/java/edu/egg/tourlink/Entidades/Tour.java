@@ -29,8 +29,8 @@ public class Tour {
     @OneToOne
     private Tipo_tour tipo_tour;
     
-    @OneToMany
-    private List<Idioma> idiomas;
+    @OneToOne
+    private Idioma idioma;
     
     @OneToMany
     private List<Calificacion> calificaciones;
@@ -39,18 +39,15 @@ public class Tour {
     public Tour() {
     }
 
-    public Tour(String id, Date fecha, String horario, Tipo_tour tipo_tour, List<Idioma> idiomas, List<Calificacion> calificaciones) {
-        this.id = id;
-        this.fecha = fecha;
-        this.horario = horario;
-        this.tipo_tour = tipo_tour;
-        this.idiomas = idiomas;
-        this.calificaciones = calificaciones;
-    }
-    
-
     // Getter & Setter
-    
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
 
     public Date getFecha() {
         return fecha;
@@ -66,63 +63,32 @@ public class Tour {
 
     public void setHorario(String horario) {
         this.horario = horario;
-    
-    }
-    /**
-     * @return the idiomas
-     */
-    public List<Idioma> getIdiomas() {
-        return idiomas;
     }
 
-    /**
-     * @param idiomas the idiomas to set
-     */
-    public void setIdiomas(List<Idioma> idiomas) {
-        this.idiomas = idiomas;
-    }
-
-    /**
-     * @return the calificaciones
-     */
-    public List<Calificacion> getCalificaciones() {
-        return calificaciones;
-    }
-
-    /**
-     * @param calificaciones the calificaciones to set
-     */
-    public void setCalificaciones(List<Calificacion> calificaciones) {
-        this.calificaciones = calificaciones;
-    }
-
-    /**
-     * @return the id
-     */
-    public String getId() {
-        return id;
-    }
-
-    /**
-     * @param id the id to set
-     */
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    /**
-     * @return the tipo_tour
-     */
     public Tipo_tour getTipo_tour() {
         return tipo_tour;
     }
 
-    /**
-     * @param tipo_tour the tipo_tour to set
-     */
     public void setTipo_tour(Tipo_tour tipo_tour) {
         this.tipo_tour = tipo_tour;
     }
+
+    public Idioma getIdioma() {
+        return idioma;
+    }
+
+    public void setIdioma(Idioma idioma) {
+        this.idioma = idioma;
+    }
+
+    public List<Calificacion> getCalificaciones() {
+        return calificaciones;
+    }
+
+    public void setCalificaciones(List<Calificacion> calificaciones) {
+        this.calificaciones = calificaciones;
+    }
     
 
+    
 }
