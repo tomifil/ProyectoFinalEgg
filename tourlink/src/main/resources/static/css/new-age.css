@@ -420,7 +420,7 @@ footer ul li a:hover, footer ul li a:focus, footer ul li a:active, footer ul li 
 }
 
 .btn {
-  border-radius: 15px;
+  border-radius: .25rem;
   font-family: 'Lato', 'Helvetica', 'Arial', 'sans-serif';
   letter-spacing: 2px;
   text-transform: uppercase;
@@ -502,3 +502,28 @@ body{
           float: right;
           padding: 10px 20px;
         }
+/*
+
+
+EDITAR EVT
+
+
+*/
+header.masthead.evt{
+  background:none;
+  height: auto;
+}
+.img-thumbnail {
+    border-radius: 50%;
+}
+
+.card.tour{
+
+}
+  .tour .card-title {
+    color: black;
+    font-weight: bold;
+  }
+  .tour .card-text {
+    color: black;
+}
