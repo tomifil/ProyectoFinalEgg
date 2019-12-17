@@ -38,6 +38,12 @@ public class PortalControlador {
     public String index() {
         return "index.html";
     }
+    
+    @GetMapping("/verGuias")
+    public String guias() {
+        return "verGuias.html";
+    }
+    
 
 //    Registro de GUÍA
     @Autowired
