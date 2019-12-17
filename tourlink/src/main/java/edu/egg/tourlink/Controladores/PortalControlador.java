@@ -52,26 +52,36 @@ public class PortalControlador {
     @PostMapping("/crearGuia")
     public String crearGuia(@RequestParam(required = false, value = "imagen") MultipartFile archivo, @RequestParam(value = "dni") long dni, @RequestParam(value = "nombre") String nombre, @RequestParam(value = "apellido") String apellido,
             @RequestParam(value = "mail") String mail, @RequestParam(value = "contrasena") String contrasena) throws ErrorServicio, IOException {
-        try {
+        if(!mail.equals(usRep.buscarMail(mail))){
+            try {
             gs.registrarGuia(archivo, dni, nombre, apellido, mail, contrasena);
         } catch (ErrorServicio e) {
             e.printStackTrace();
             System.out.println("Faltan datos");
         }
         return "index.html";
+        }
+        else {
+            return"index.html";
+        }
     }
 
 
     @PostMapping("/crearEvt")
     public String crearEVT(@RequestParam(required = false, value = "imagen") MultipartFile archivo, @RequestParam(value = "legajo_id") String legajo_id, @RequestParam(value = "razon_social") String razon_social, @RequestParam(value = "direccion") String direccion, @RequestParam(value = "telefono") long telefono,
-            @RequestParam(value = "email") String email, @RequestParam(value = "contrasena") String clave) throws ErrorServicio, IOException {
+            @RequestParam(value = "email") String mail, @RequestParam(value = "contrasena") String clave) throws ErrorServicio, IOException {
+        if(!mail.equals(usRep.buscarMail(mail))){
         try {
-            es.registrarEvt(archivo, legajo_id, razon_social, direccion, telefono, email, clave);
+            es.registrarEvt(archivo, legajo_id, razon_social, direccion, telefono, mail, clave);
         } catch (ErrorServicio e) {
             e.printStackTrace();
             System.out.println("Faltan datos");
         }
-        return "index.html";
+        return "index.html";    
+        }
+        else{
+            return"index.html";
+        }
     }
 
    
