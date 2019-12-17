@@ -17,6 +17,9 @@ public interface GuiaRepositorio extends JpaRepository<Guia, Long> {
     @Query("SELECT c FROM Guia c WHERE c.usuario.id = :id")
     public Guia buscarGuia(@Param("id")String id);
     
+    @Query("SELECT c FROM Guia  c")
+    public List buscarTodos();
+    
     
     
 //    @Query("SELECT c FROM Guia c WHERE c.clave = :clave")
