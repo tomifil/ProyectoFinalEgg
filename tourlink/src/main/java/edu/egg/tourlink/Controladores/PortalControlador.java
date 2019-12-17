@@ -3,15 +3,22 @@ package edu.egg.tourlink.Controladores;
 
 import edu.egg.tourlink.Entidades.EVT;
 import edu.egg.tourlink.Entidades.Guia;
+import edu.egg.tourlink.Entidades.Idioma;
 import edu.egg.tourlink.Errores.ErrorServicio;
 import edu.egg.tourlink.Repositorios.EvtRepositorio;
 import edu.egg.tourlink.Repositorios.GuiaRepositorio;
 import edu.egg.tourlink.Repositorios.UsuarioRepositorio;
 import edu.egg.tourlink.Servicios.EVTServicio;
 import edu.egg.tourlink.Servicios.GuiaServicio;
+import edu.egg.tourlink.Servicios.TourServicio;
+import edu.egg.tourlink.entidades.Tipo_tour;
 import edu.egg.tourlink.entidades.Usuario;
 import edu.egg.tourlink.enumeraciones.Rol;
 import java.io.IOException;
+
+
+import java.util.Date;
+
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -36,6 +43,9 @@ public class PortalControlador {
     @Autowired
     GuiaServicio gs;
     
+     @Autowired
+     TourServicio tourServicio;
+     
     // Registro de EVT
     @Autowired
     EVTServicio es;
@@ -110,6 +120,7 @@ public class PortalControlador {
           return "redirect:/home";
     }
     
+
     @PostMapping("/buscarGuias")
     public String listadoGuias(@RequestParam(required = false) String q, @RequestParam(required = false) String error, ModelMap modelo) {
         List<Guia> guias;
@@ -126,4 +137,21 @@ public class PortalControlador {
         return "verGuias.html";
     }
     
+
+    @PostMapping("/crearTour")
+    public String crearTour(@RequestParam (value = "legajo_id") String legajo_id,@RequestParam (value = "tipo_tour")Tipo_tour tipo_tour,@RequestParam (value = "idiomas") List<Idioma> idiomas, /*List<Calificacion> calificaciones,*/@RequestParam (value = "fecha") Date fecha,@RequestParam (value = "horario")String horario){
+        
+        try {
+        tourServicio.agregarTour(legajo_id, tipo_tour, idiomas, fecha, horario);    
+        } catch (ErrorServicio e) {
+            e.printStackTrace();
+            System.out.println("Faltan datos");
+        }
+        return "editarEvt.html";
+    }
+    
+    
+    
+    
+
 }
