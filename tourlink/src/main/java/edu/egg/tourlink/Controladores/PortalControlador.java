@@ -66,7 +66,7 @@ public class PortalControlador {
     public String crearEVT(@RequestParam(required = false, value = "imagen") MultipartFile archivo, @RequestParam(value = "legajo_id") String legajo_id, @RequestParam(value = "razon_social") String razon_social, @RequestParam(value = "direccion") String direccion, @RequestParam(value = "telefono") long telefono,
             @RequestParam(value = "email") String email, @RequestParam(value = "contrasena") String clave) throws ErrorServicio, IOException {
         try {
-            es.registrar(archivo, legajo_id, razon_social, direccion, telefono, email, clave);
+            es.registrarEvt(archivo, legajo_id, razon_social, direccion, telefono, email, clave);
         } catch (ErrorServicio e) {
             e.printStackTrace();
             System.out.println("Faltan datos");
@@ -87,15 +87,15 @@ public class PortalControlador {
                 if (usuario.getRol() == Rol.Guia){
                     Guia guia = guiaRepositorio.buscarGuia(usuario.getId());
                     modelo.put("guia",guia);
-                return "/editarGuia.html";  
+                return "editarGuia.html";  
                 } else {
                     EVT evt = evtRepositorio.buscarEvt(usuario.getId());
                     modelo.put("evt", evt);
-                    return "/editarEvt.html";
+                    return "editarEvt.html";
                 }
                 
             }
         }
-          return "redirect:/login";
+          return "redirect:/home";
     }
 }
