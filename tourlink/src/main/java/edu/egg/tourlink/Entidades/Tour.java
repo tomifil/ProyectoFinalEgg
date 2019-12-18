@@ -1,5 +1,6 @@
 package edu.egg.tourlink.Entidades;
 
+import edu.egg.tourlink.Enumeraciones.Tipo_idioma;
 import edu.egg.tourlink.entidades.Tipo_tour;
 import java.util.Date;
 import java.util.List;
@@ -30,7 +31,7 @@ public class Tour {
     private Tipo_tour tipo_tour;
     
     @OneToOne
-    private Idioma idioma;
+    private Tipo_idioma tipo_idioma;
     
     @OneToMany
     private List<Calificacion> calificaciones;
@@ -73,12 +74,12 @@ public class Tour {
         this.tipo_tour = tipo_tour;
     }
 
-    public Idioma getIdioma() {
-        return idioma;
+    public Tipo_idioma getTipo_idioma() {
+        return tipo_idioma;
     }
 
-    public void setIdioma(Idioma idioma) {
-        this.idioma = idioma;
+    public void setTipo_idioma(Tipo_idioma tipo_idioma) {
+        this.tipo_idioma = tipo_idioma;
     }
 
     public List<Calificacion> getCalificaciones() {
@@ -88,7 +89,5 @@ public class Tour {
     public void setCalificaciones(List<Calificacion> calificaciones) {
         this.calificaciones = calificaciones;
     }
-    
-
     
 }
