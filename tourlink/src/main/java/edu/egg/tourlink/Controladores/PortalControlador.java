@@ -170,7 +170,7 @@ public class PortalControlador {
 
     
         @PostMapping("/crearTour")
-    public String crearTour(@RequestParam(value = "legajo_id") String legajo_id, @RequestParam(value = "tipo_tour") Tipo_tour tipo_tour, @RequestParam(value = "idioma") Tipo_idioma tipo_idioma, /List<Calificacion> calificaciones,/ @RequestParam(value = "fecha") Date fecha, @RequestParam(value = "horario") String horario) throws ErrorServicio {
+    public String crearTour(@RequestParam(value = "legajo_id") String legajo_id, @RequestParam(value = "tipo_tour") Tipo_tour tipo_tour, @RequestParam(value = "idioma") Tipo_idioma tipo_idioma, /*List<Calificacion> calificaciones,*/ @RequestParam(value = "fecha") Date fecha, @RequestParam(value = "horario") String horario) throws ErrorServicio {
 
         try {
             tourServicio.agregarTour(legajo_id, tipo_tour, tipo_idioma, fecha, horario);
