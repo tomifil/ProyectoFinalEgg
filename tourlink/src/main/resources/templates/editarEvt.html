@@ -102,7 +102,7 @@
                                         </button>
                                       </div>
                                       <div class="modal-body">
-                                          <form id="crearTour" class="form-inicio" method="POST" action="crearTour" th:object="${tipo_tour}">
+                                          <form id="crearTour" class="form-inicio" method="POST" action="evt/crearTour" th:object="${tipo_tour}">
                                             <input type="hidden" name="th:text='${evt.id}'">
                                             <div class="form-group">
                                               <label for="horario">Horario</label>
@@ -196,9 +196,9 @@
                                             <hr>
                                             <p class="card-text"><span>Fecha</span> |  <span>Hora</span></p>
 
-                                            <a href="/verGuias" class="btn btn-primary">Buscar Guía</a>
+                                            <a href="evt/verGuias" class="btn btn-primary">Buscar Guía</a>
 
-                                            <a href="verGuias.html" class="btn btn-primary">Buscar Guía</a>
+                                            <a href="evt/verGuias.html" class="btn btn-primary">Buscar Guía</a>
 
                                           </div>
                                         </div>
