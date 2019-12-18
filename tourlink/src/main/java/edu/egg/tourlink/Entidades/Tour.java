@@ -30,6 +30,12 @@ public class Tour {
     @OneToOne
     private Tipo_tour tipo_tour;
     
+    @OneToOne
+    private Guia guia;
+    
+    @OneToOne
+    private EVT evt;
+    
     @Enumerated(EnumType.STRING)
     private Tipo_idioma tipo_idioma;
     
@@ -88,6 +94,34 @@ public class Tour {
 
     public void setCalificaciones(List<Calificacion> calificaciones) {
         this.calificaciones = calificaciones;
+    }
+
+    /**
+     * @return the guia
+     */
+    public Guia getGuia() {
+        return guia;
+    }
+
+    /**
+     * @param guia the guia to set
+     */
+    public void setGuia(Guia guia) {
+        this.guia = guia;
+    }
+
+    /**
+     * @return the evt
+     */
+    public EVT getEvt() {
+        return evt;
+    }
+
+    /**
+     * @param evt the evt to set
+     */
+    public void setEvt(EVT evt) {
+        this.evt = evt;
     }
     
 }
