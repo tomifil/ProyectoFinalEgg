@@ -102,8 +102,8 @@
                                         </button>
                                       </div>
                                       <div class="modal-body">
-                                          <form id="crearTour" class="form-inicio" method="POST" action="crearTour" th:object="${tipo_tour}">
-                                            <input type="hidden" name="legajo_id" value="123123">
+                                          <form id="crearTour" class="form-inicio" method="POST" action="evt/crearTour" th:object="${tipo_tour}">
+                                            <input type="hidden" name="th:text='${evt.id}'">
                                             <div class="form-group">
                                               <label for="horario">Horario</label>
                                               <input type="text" class="form-control" id="horario" aria-describedby="emailHelp" placeholder="Horario de atención" name="horario">                                           
@@ -201,8 +201,9 @@
                                             <hr>
                                             <p class="card-text"><span>Fecha</span> |  <span>Hora</span></p>
 
-                                            <a href="/verGuias" class="btn btn-primary">Buscar Guía</a>
+                                            <a href="evt/verGuias" class="btn btn-primary">Buscar Guía</a>
 
+                                         
 
                                           </div>
                                         </div>

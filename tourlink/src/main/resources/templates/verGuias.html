@@ -34,7 +34,7 @@
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">            
           <li class="nav-item">
-            <a href="editarEvt"  class="btn btn-xl" > MI PERFIL</a>
+            <a href="evt/editarEvt"  class="btn btn-xl" > MI PERFIL</a>
           </li> 
           <li class="nav-item">
             <a href="cerrarSesion"  class="btn btn-xl" > SALIR </a>
@@ -49,7 +49,7 @@
 <div class="container">
   <div class="row">
     <div class="col-12">
-      <form action="buscarGuias" method="POST">
+      <form action="evt/buscarGuias" method="POST">
         <input type="search" class="form-control mt-4" placeholder="Buscar" name="q" th:value="${q}">
                 <button type="submit" class="btn btn-primary icon-search mt-3">Buscar</button>
       </form>
