@@ -21,6 +21,6 @@ public interface IdiomaRepositorio extends JpaRepository<Idioma,String>{
     
     @Query("SELECT c FROM Idioma c WHERE c.id = :id ")
     public List<Idioma> buscarPorIdioma(@Param("id") String id) ;
-    @Query("Select c From Idioma c WHERE c.nombre LIKE %"+":q"+"%")
+    @Query("Select c From Idioma c WHERE c.tipo_idioma LIKE %"+":q"+"%")
     public String buscarPorNombre(@Param("q") String q);    
 }

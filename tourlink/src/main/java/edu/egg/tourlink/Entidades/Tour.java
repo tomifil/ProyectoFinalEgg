@@ -30,7 +30,7 @@ public class Tour {
     @OneToOne
     private Tipo_tour tipo_tour;
     
-    @OneToOne
+    @Enumerated(EnumType.STRING)
     private Tipo_idioma tipo_idioma;
     
     @OneToMany

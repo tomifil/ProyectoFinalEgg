@@ -10,6 +10,6 @@ package edu.egg.tourlink.Enumeraciones;
  * @author bird
  */
 public enum Tipo_idioma {
-    Español,Inglés,Portugués,Francés,Alemán,Italiano,Ruso,Chino;
+    ESPANOL,INGLES,PORTUGUES,FRANCES,ALEMAN,ITALIANO,RUSO,CHINO;
 
 }

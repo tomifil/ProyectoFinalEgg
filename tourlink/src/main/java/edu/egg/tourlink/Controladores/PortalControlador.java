@@ -12,11 +12,14 @@ import edu.egg.tourlink.Repositorios.TourRepositorio;
 import edu.egg.tourlink.Repositorios.UsuarioRepositorio;
 import edu.egg.tourlink.Servicios.EVTServicio;
 import edu.egg.tourlink.Servicios.GuiaServicio;
+import edu.egg.tourlink.Servicios.TipoTourServicio;
 import edu.egg.tourlink.Servicios.TourServicio;
 import edu.egg.tourlink.entidades.Tipo_tour;
 import edu.egg.tourlink.entidades.Usuario;
 import edu.egg.tourlink.enumeraciones.Rol;
 import java.io.IOException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 
 
 import java.util.Date;
@@ -79,6 +82,9 @@ public class PortalControlador {
 
     @Autowired
     TipoTourRepositorio tipotourRepositorio;
+    
+    @Autowired
+    TipoTourServicio tipotourServicio;
     
     @PostMapping("/crearGuia")
     public String crearGuia(@RequestParam(required = false, value = "imagen") MultipartFile archivo, @RequestParam(value = "dni") long dni, @RequestParam(value = "nombre") String nombre, @RequestParam(value = "apellido") String apellido,
@@ -170,10 +176,18 @@ public class PortalControlador {
 
     
     @PostMapping("/crearTour")
-    public String crearTour(@RequestParam(value = "legajo_id") String legajo_id, @RequestParam(value = "tipo_tour") Tipo_tour tipo_tour, @RequestParam(value = "idioma") Tipo_idioma tipo_idioma, /*List<Calificacion> calificaciones,*/ @RequestParam(value = "fecha") Date fecha, @RequestParam(value = "horario") String horario) throws ErrorServicio {
+    public String crearTour(@RequestParam(value = "legajo_id") String legajo_id, @RequestParam(value = "tipo_tour") String nombre_tipo_tour, @RequestParam(value = "idioma") String nombre_tipo_idioma, /*List<Calificacion> calificaciones,*/ @RequestParam(value = "fecha") String fecha, @RequestParam(value = "horario") String horario) throws ErrorServicio, ParseException {
 
+        Tipo_tour tipo_tour = (Tipo_tour) tipotourServicio.buscarPorId(nombre_tipo_tour);
+        Tipo_idioma tipo_idioma = Tipo_idioma.valueOf(nombre_tipo_idioma);
+        Date dateFormat = null;
+        
         try {
-            tourServicio.agregarTour(legajo_id, tipo_tour, tipo_idioma, fecha, horario);
+            dateFormat = new SimpleDateFormat("yyyy-MM-dd").parse(fecha);
+            if(fecha.equals(null)){
+                dateFormat = new Date();
+            }
+            tourServicio.agregarTour(legajo_id, tipo_tour, tipo_idioma, dateFormat, horario);
         } catch (ErrorServicio e) {
             e.printStackTrace();
             System.out.println("Faltan datos");
@@ -183,7 +197,7 @@ public class PortalControlador {
 
   @PostMapping("/modificarTour")
     public String modificarTour(@RequestParam(value = "id") String id, @RequestParam(value = "legajo_id") String legajo_id, @RequestParam(value = "tipo_tour") Tipo_tour tipo_tour, @RequestParam(value = "idioma") Tipo_idioma tipo_idioma, /*List<Calificacion> calificaciones,*/ @RequestParam(value = "fecha") Date fecha, @RequestParam(value = "horario") String horario) throws ErrorServicio {
-
+        
         try {
               tourServicio.modificarTour(legajo_id, id,tipo_tour, tipo_idioma, fecha, horario);
        } catch (ErrorServicio e) {
