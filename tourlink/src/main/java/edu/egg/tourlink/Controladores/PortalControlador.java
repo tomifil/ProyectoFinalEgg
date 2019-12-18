@@ -7,6 +7,7 @@ import edu.egg.tourlink.Entidades.Idioma;
 import edu.egg.tourlink.Errores.ErrorServicio;
 import edu.egg.tourlink.Repositorios.EvtRepositorio;
 import edu.egg.tourlink.Repositorios.GuiaRepositorio;
+import edu.egg.tourlink.Repositorios.TipoTourRepositorio;
 import edu.egg.tourlink.Repositorios.TourRepositorio;
 import edu.egg.tourlink.Repositorios.UsuarioRepositorio;
 import edu.egg.tourlink.Servicios.EVTServicio;
@@ -48,6 +49,9 @@ public class PortalControlador {
     public String editarEvt() {
         return "editarEvt.html";
     }
+    
+    
+    
 
 //    Registro de GUÍA
     @Autowired
@@ -73,6 +77,9 @@ public class PortalControlador {
     @Autowired
     TourRepositorio tourRepositorio;
 
+    @Autowired
+    TipoTourRepositorio tipotourRepositorio;
+    
     @PostMapping("/crearGuia")
     public String crearGuia(@RequestParam(required = false, value = "imagen") MultipartFile archivo, @RequestParam(value = "dni") long dni, @RequestParam(value = "nombre") String nombre, @RequestParam(value = "apellido") String apellido,
             @RequestParam(value = "mail") String mail, @RequestParam(value = "contrasena") String contrasena) throws ErrorServicio, IOException {
@@ -150,6 +157,16 @@ public class PortalControlador {
         return "verGuias.html";
     }
     
+    @PostMapping("/buscarTipoTour")
+    public String listadoTipoTour(@RequestParam(required = false) String q, @RequestParam(required = false) String error, ModelMap modelo) {
+        List<Tipo_tour> tipo_tour;
+        tipo_tour = guiaRepositorio.buscarTodos();       
+//        modelo.put("q", q);
+        modelo.put("tipo_tour", tipo_tour);
+        modelo.put("error", error);
+
+        return "editarEvt.html";
+    }
 
     
         @PostMapping("/crearTour")
