@@ -30,6 +30,12 @@ public class Tour {
     @OneToOne
     private Tipo_tour tipo_tour;
     
+    @OneToOne
+    private Guia guia;
+    
+    @OneToOne
+    private EVT evt;
+    
     @Enumerated(EnumType.STRING)
     private Tipo_idioma tipo_idioma;
     
