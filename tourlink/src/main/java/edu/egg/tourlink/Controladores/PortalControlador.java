@@ -3,6 +3,7 @@ package edu.egg.tourlink.Controladores;
 import edu.egg.tourlink.Entidades.EVT;
 import edu.egg.tourlink.Entidades.Guia;
 import edu.egg.tourlink.Entidades.Idioma;
+import edu.egg.tourlink.Entidades.Tour;
 import edu.egg.tourlink.Enumeraciones.Tipo_idioma;
 import edu.egg.tourlink.Errores.ErrorServicio;
 import edu.egg.tourlink.Repositorios.EvtRepositorio;
@@ -116,20 +117,25 @@ public class PortalControlador {
     }
 
     @PostMapping("/login")
-    public String ingresar(@RequestParam(value = "email") String email, @RequestParam(value = "contrasena") String clave, ModelMap modelo) throws ErrorServicio {
+    public String ingresar(@RequestParam(value = "email") String email, @RequestParam(value = "contrasena") String clave, ModelMap modelo)  throws ErrorServicio{
 
         if (usRep.buscarPorMail(email) != null) {
             Usuario usuario = usRep.buscarPorMail(email);
 
             if (new BCryptPasswordEncoder().matches(clave, usuario.getClave())) {
-
+                
                 if (usuario.getRol() == Rol.Guia) {
                     Guia guia = guiaRepositorio.buscarGuia(usuario.getId());
                     modelo.put("guia", guia);
+                    
                     return "editarGuia.html";
                 } else {
                     EVT evt = evtRepositorio.buscarEvt(usuario.getId());
+                    
+                    
                     modelo.put("evt", evt);
+                    
+
                     return "editarEvt.html";
                 }
 
@@ -172,49 +178,50 @@ public class PortalControlador {
 
     
     @PostMapping("/crearTour")
-    public String crearTour(@RequestParam(value = "legajo_id") String legajo_id, @RequestParam(value = "tipo_tour") String nombre_tipo_tour, @RequestParam(value = "idioma") String nombre_tipo_idioma, /*List<Calificacion> calificaciones,*/ @RequestParam(value = "fecha") String fecha, @RequestParam(value = "horario") String horario) throws ErrorServicio, ParseException {
-
-        Tipo_tour tipo_tour = (Tipo_tour) tipotourServicio.buscarPorId(nombre_tipo_tour);
-        Tipo_idioma tipo_idioma = Tipo_idioma.valueOf(nombre_tipo_idioma);
-        Date dateFormat = null;
-        
-        try {
-            dateFormat = new SimpleDateFormat("yyyy-MM-dd").parse(fecha);
-            if(fecha.equals(null)){
-                dateFormat = new Date();
-            }
-            tourServicio.agregarTour(legajo_id, tipo_tour, tipo_idioma, dateFormat, horario);
-        } catch (ErrorServicio e) {
-            e.printStackTrace();
-            System.out.println("Faltan datos");
-        }
-        return "editarEvt.html";
-    }
-
-  @PostMapping("/modificarTour")
-    public String modificarTour(@RequestParam(value = "id") String id, @RequestParam(value = "legajo_id") String legajo_id, @RequestParam(value = "tipo_tour") Tipo_tour tipo_tour, @RequestParam(value = "idioma") Tipo_idioma tipo_idioma, /*List<Calificacion> calificaciones,*/ @RequestParam(value = "fecha") Date fecha, @RequestParam(value = "horario") String horario) throws ErrorServicio {
-        
-        try {
-              tourServicio.modificarTour(legajo_id, id,tipo_tour, tipo_idioma, fecha, horario);
-       } catch (ErrorServicio e) {
-            e.printStackTrace();
-            System.out.println("Faltan datos");
-        }
-        return "editarEvt.html";
-    }
-   
-             @PostMapping("/eliminarTour")
-             public String eliminarTour( @RequestParam(value = "legajo_id") String legajo_id, @RequestParam(value = "id") String id) throws ErrorServicio {
-
-             if (tourRepositorio.findById(id) != null) {
-             try {
-             tourServicio.eliminarTour(legajo_id, id);
-             } catch (ErrorServicio e) {
-             e.printStackTrace();
-             System.out.println("Datos Incorrectos");
-
-             }
-             }
-             return "editarEvt.html";
-             }
-             */
+//    public String crearTour(@RequestParam(value = "legajo_id") String legajo_id, @RequestParam(value = "tipo_tour") String nombre_tipo_tour, @RequestParam(value = "idioma") String nombre_tipo_idioma, /*List<Calificacion> calificaciones,*/ 
+//@RequestParam(value = "fecha") String fecha, @RequestParam(value = "horario") String horario) throws ErrorServicio, ParseException {
+//
+//        Tipo_tour tipo_tour = (Tipo_tour) tipotourServicio.buscarPorId(nombre_tipo_tour);
+//        Tipo_idioma tipo_idioma = Tipo_idioma.valueOf(nombre_tipo_idioma);
+//        Date dateFormat = null;
+//        
+//        try {
+//            dateFormat = new SimpleDateFormat("yyyy-MM-dd").parse(fecha);
+//            if(fecha.equals(null)){
+//                dateFormat = new Date();
+//            }
+//            tourServicio.agregarTour(legajo_id, tipo_tour, tipo_idioma, dateFormat, horario);
+//        } catch (ErrorServicio e) {
+//            e.printStackTrace();
+//            System.out.println("Faltan datos");
+//        }
+//        return "editarEvt.html";
+//    }
+//
+//  @PostMapping("/modificarTour")
+//    public String modificarTour(@RequestParam(value = "id") String id, @RequestParam(value = "legajo_id") String legajo_id, @RequestParam(value = "tipo_tour") Tipo_tour tipo_tour, @RequestParam(value = "idioma") Tipo_idioma tipo_idioma, /*List<Calificacion> calificaciones,*/ @RequestParam(value = "fecha") Date fecha, @RequestParam(value = "horario") String horario) throws ErrorServicio {
+//        
+//        try {
+//              tourServicio.modificarTour(legajo_id, id,tipo_tour, tipo_idioma, fecha, horario);
+//       } catch (ErrorServicio e) {
+//            e.printStackTrace();
+//            System.out.println("Faltan datos");
+//        }
+//        return "editarEvt.html";
+//    }
+//   
+//             @PostMapping("/eliminarTour")
+//             public String eliminarTour( @RequestParam(value = "legajo_id") String legajo_id, @RequestParam(value = "id") String id) throws ErrorServicio {
+//
+//             if (tourRepositorio.findById(id) != null) {
+//             try {
+//             tourServicio.eliminarTour(legajo_id, id);
+//             } catch (ErrorServicio e) {
+//             e.printStackTrace();
+//             System.out.println("Datos Incorrectos");
+//
+//             }
+//             }
+//             return "editarEvt.html";
+//             }
+//             

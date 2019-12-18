@@ -11,6 +11,10 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface TourRepositorio extends JpaRepository<Tour, String>{
     
-//      @Query("Select c FROM Tour c WHERE c.tour.id = :id")
-//    public List<Tour> buscarTourPorId(@Param("id") String id);
+    @Query("Select c FROM Tour c")
+    public List<Tour> buscarTodos();
+    
+// buscarPasados @Query("Select c FROM Tour c WHERE fecha<fechaActual")
+// buscarConAsignar @Query("Select c FROM Tour c WHERE fecha>fechaActual AND id.guia!=null")
+// buscarSinAsignar @Query("Select c FROM Tour c WHERE fecha>fechaActual AND id.guia==null")
 }
