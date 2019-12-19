@@ -14,6 +14,9 @@ public interface TourRepositorio extends JpaRepository<Tour, String>{
     @Query("Select c FROM Tour c")
     public List<Tour> buscarTodos();
     
+     @Query("Select c From Tour c WHERE c.nombre LIKE %"+":q"+"%")
+    public List buscarPorNombre(@Param("q") String q);
+    
 // buscarPasados @Query("Select c FROM Tour c WHERE fecha<fechaActual")
 // buscarConAsignar @Query("Select c FROM Tour c WHERE fecha>fechaActual AND id.guia!=null")
 // buscarSinAsignar @Query("Select c FROM Tour c WHERE fecha>fechaActual AND id.guia==null")

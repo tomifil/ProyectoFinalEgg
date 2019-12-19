@@ -22,7 +22,9 @@ public class Tour {
     @GeneratedValue(generator = "uuid")
     @GenericGenerator(name = "uuid", strategy = "uuid2")
     private String id;
-
+    
+    private String nombre;
+    
     @Temporal(TemporalType.TIMESTAMP)
     private Date fecha;
     private String horario;
@@ -122,6 +124,20 @@ public class Tour {
      */
     public void setEvt(EVT evt) {
         this.evt = evt;
+    }
+
+    /**
+     * @return the nombre
+     */
+    public String getNombre() {
+        return nombre;
+    }
+
+    /**
+     * @param nombre the nombre to set
+     */
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
     
 }
