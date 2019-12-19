@@ -134,14 +134,7 @@
 
                                       </div>
                                       <div class="modal-footer">
-                                          <script>
-                                              $(document).ready(function() {
-                                                  $("#crearTour").click(function() {
-                                                      url= http://localhost:8080/editarEvt;
-                                                      window.location.href = url;
-                                                  }
-                                              }
-                                          </script>
+
                                         <button type="button" class="btn btn-warning" data-dismiss="modal">Cerrar</button>
                                      
                                         <button type="submit" form="crearTour" id="crearTour" class="btn btn-success">Guardar</button>
@@ -178,7 +171,8 @@
                                           <div class="card tour" style="width: 18rem;">
                                             <img src="http://lorempixel.com/300/200/nature" class="card-img-top" alt="img">
                                             <div class="card-body">
-                                                <h5 class="card-title" th:text="${tour.nombre}"></h5>
+<!--                                            <h5 class="card-title" th:text="${tour.nombre}"></h5>-->
+                                                <h5 class="card-title"> Nombre del tour</h5>
                                               <hr>
                                               <p class="card-text"><span th:text="${tour.fecha}"></span> |  <span>Hora</span></p>
                                               <a href="#" class="btn btn-primary">Ver calificación</a>
@@ -189,7 +183,7 @@
                                   </div>
                                   <div class="tab-pane fade" id="tour_asignados" role="tabpanel" aria-labelledby="tour_asignados-tab">
                                     <form action="evt/buscarToursAsignados" method="POST">
-                                        <input type="search" class="form-control mt-4" placeholder="Buscar" name="q" th:value="${q}">
+                                        <input type="search" class="form-control mt-4" placeholder="Buscar" name="m" th:value="${m}">
                                                 <button type="submit" class="btn btn-primary icon-search mt-3">Buscar</button>
                                     </form>
                                     <div class="row">
@@ -197,21 +191,22 @@
                                       <div class="col-3">
                                         <div class="card tour" style="width: 18rem;">
                                           <img src="http://lorempixel.com/300/200/nature" class="card-img-top" alt="img">
-                                          <div class="card-body">
-                                            <h5 class="card-title" th:text="${tour.nombre}"></h5>
+                                          <div class="card-body">                                       
+<!--                                            <h5 class="card-title" th:text="${tour.nombre}"></h5>-->
+                                                <h5 class="card-title"> Nombre del tour</h5>
                                             <hr>
                                             <p class="card-text"><span th:text="${tour.fecha}"></span> |  <span>Hora</span></p>
                                             <!-- <a href="#" class="btn btn-primary">Ver calificación</a> -->
                                           </div>
                                         </div>
                                       </div><!-- Cierra bloque -->
-                                    </div>
-                                      
+                                    </div>             
                                   </div>
                                   <div class="tab-pane fade" id="tour_sin_asignar" role="tabpanel" aria-labelledby="tour_sin_asignar-tab">
                                     <form action="evt/buscarToursSinAsignar" method="POST">
-                                        <input type="search" class="form-control mt-4" placeholder="Buscar" name="q" th:value="${q}">
-                                                <button type="submit" class="btn btn-primary icon-search mt-3">Buscar</button>
+                                        <input type="search" class="form-control mt-4" placeholder="Buscar por nombre" name="t" th:value="${t}">
+                                        
+                                        <button type="submit" class="btn btn-primary icon-search mt-3">Buscar</button>
                                     </form>
                                     <div class="row">
                                       <!-- bloque a repetirse según coincidencias de búsqueda -->
@@ -219,7 +214,8 @@
                                         <div class="card tour" style="width: 18rem;">
                                           <img src="http://lorempixel.com/300/200/nature" class="card-img-top" alt="img">
                                           <div class="card-body">
-                                            <h5 class="card-title" th:text="${tour.nombre}"></h5>
+<!--                                            <h5 class="card-title" th:text="${tour.nombre}"></h5>-->
+                                                <h5 class="card-title"> Nombre del tour</h5>
                                             <hr>
                                             <p class="card-text"><span th:text="${tour.fecha}"></span> |  <span>Hora</span></p>
                                             <a href="evt/verGuias" class="btn btn-primary">Buscar Guía</a>

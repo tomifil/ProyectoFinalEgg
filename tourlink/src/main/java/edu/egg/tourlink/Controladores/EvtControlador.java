@@ -26,6 +26,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -36,6 +37,7 @@ import org.springframework.web.bind.annotation.RequestParam;
  */
 @Controller
 @RequestMapping("/evt")
+
 public class EvtControlador {
 
     @Autowired
@@ -62,6 +64,16 @@ public class EvtControlador {
     @Autowired
     TipoTourServicio tipotourServicio;
         
+    @GetMapping("/verGuias")
+    public String guias() {
+        return "verGuias.html";
+    }
+
+    @GetMapping("/editarEvt")
+    public String editarEvt() {
+        return "editarEvt.html";
+    }
+    
     @PostMapping("/buscarGuias")//action hecho
     public String listadoGuias(@RequestParam(required = false) String q, @RequestParam(required = false) String error, ModelMap modelo) {
         List<Guia> guias;
@@ -86,8 +98,11 @@ public class EvtControlador {
         modelo.put("tours", tours);
         modelo.put("error", error);
         
-        return "editarEvt.html";
+        return "redirect:/editarEvt";
     }
+    
+    
+    
     @PostMapping("/buscarTipoTour")
     public String listadoTipoTour(@RequestParam(required = false) String q, @RequestParam(required = false) String error, ModelMap modelo) {
         List<Tipo_tour> tipo_tour;
@@ -99,6 +114,8 @@ public class EvtControlador {
         return "editarEvt.html";
     }
 
+    
+    
     @PostMapping("/crearTour")
     public String crearTour(@RequestParam(value = "legajo_id") String legajo_id, @RequestParam(value = "tipo_tour") String nombre_tipo_tour, @RequestParam(value = "idioma") String nombre_tipo_idioma,@RequestParam(value = "fecha") String fecha, @RequestParam(value = "horario") String horario,@RequestParam(value = "nombre") String nombre) throws ErrorServicio, ParseException {
         
