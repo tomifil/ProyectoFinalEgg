@@ -17,6 +17,8 @@ public interface EvtRepositorio extends JpaRepository<EVT, String>{
     @Query("SELECT c FROM EVT c WHERE c.usuario.id = :id")
     public EVT buscarEvt(@Param("id")String id);
     
+    
+    
     @Query("SELECT c FROM EVT  c")
     public List buscarTodos();
     

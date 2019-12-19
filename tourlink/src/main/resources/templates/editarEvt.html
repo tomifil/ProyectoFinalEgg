@@ -62,7 +62,7 @@
                                   </div>
                               </div>
                               <div class="userData ml-3">
-                                  <h2 class="d-block" style="font-size: 1.5rem; font-weight: bold"><a href="javascript:void(0);">Some Name</a></h2>
+                                  <h2 class="d-block" style="font-size: 1.5rem; font-weight: bold" th:text="${evt.razon_social}"></h2>                             
                                   <h6 class="d-block"><a href="javascript:void(0)">1,500</a> Video Uploads</h6>
                                   <h6 class="d-block"><a href="javascript:void(0)">300</a> Blog Posts</h6>
                               </div>
@@ -106,6 +106,10 @@
                                             <!--<input type="hidden" name="legajo_id" value="th:value=${evt.id}"/>-->
                                             <input type="hidden" name="legajo_id" value="123123"/>
                                             <div class="form-group">
+                                              <label for="nombre">Nombre</label>
+                                              <input type="text" class="form-control" id="nombre" aria-describedby="emailHelp" placeholder="Nombre tour" name="nombre">                                           
+                                            </div>
+                                            <div class="form-group">
                                               <label for="horario">Horario</label>
                                               <input type="text" class="form-control" id="horario" aria-describedby="emailHelp" placeholder="Horario de atención" name="horario">                                           
                                             </div>
@@ -137,7 +141,7 @@
 
                                         <button type="button" class="btn btn-warning" data-dismiss="modal">Cerrar</button>
                                      
-                                        <button type="submit" form="crearTour" id="crearTour" class="btn btn-success">Guardar</button>
+                                        <button type="submit" form="crearTour"  class="btn btn-success">Guardar</button>
                                       </div>
                                     </div>
                                   </div>
@@ -188,14 +192,14 @@
                                     </form>
                                     <div class="row">
                                       <!-- bloque a repetirse según coincidencias de búsqueda -->
-                                      <div class="col-3">
+                                      <div class="col-3" th:each="tourA : ${tours}">
                                         <div class="card tour" style="width: 18rem;">
                                           <img src="http://lorempixel.com/300/200/nature" class="card-img-top" alt="img">
                                           <div class="card-body">                                       
 <!--                                            <h5 class="card-title" th:text="${tour.nombre}"></h5>-->
                                                 <h5 class="card-title"> Nombre del tour</h5>
                                             <hr>
-                                            <p class="card-text"><span th:text="${tour.fecha}"></span> |  <span>Hora</span></p>
+                                            <p class="card-text"><span th:text="${tourA.fecha}"></span> |  <span>Hora</span></p>
                                             <!-- <a href="#" class="btn btn-primary">Ver calificación</a> -->
                                           </div>
                                         </div>
@@ -203,21 +207,21 @@
                                     </div>             
                                   </div>
                                   <div class="tab-pane fade" id="tour_sin_asignar" role="tabpanel" aria-labelledby="tour_sin_asignar-tab">
-                                    <form action="evt/buscarToursSinAsignar" method="POST">
+                                    <form action="evt/buscarTourSinAsignar" method="POST">
                                         <input type="search" class="form-control mt-4" placeholder="Buscar por nombre" name="t" th:value="${t}">
                                         
                                         <button type="submit" class="btn btn-primary icon-search mt-3">Buscar</button>
                                     </form>
                                     <div class="row">
                                       <!-- bloque a repetirse según coincidencias de búsqueda -->
-                                      <div class="col-3">
+                                      <div class="col-3" th:each="tourS : ${tours}">
                                         <div class="card tour" style="width: 18rem;">
                                           <img src="http://lorempixel.com/300/200/nature" class="card-img-top" alt="img">
                                           <div class="card-body">
 <!--                                            <h5 class="card-title" th:text="${tour.nombre}"></h5>-->
                                                 <h5 class="card-title"> Nombre del tour</h5>
                                             <hr>
-                                            <p class="card-text"><span th:text="${tour.fecha}"></span> |  <span>Hora</span></p>
+                                            <p class="card-text"><span th:text="${tourS.fecha}"></span> |  <span>Hora</span></p>
                                             <a href="evt/verGuias" class="btn btn-primary">Buscar Guía</a>
                                           </div>
                                         </div>

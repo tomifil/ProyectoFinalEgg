@@ -21,7 +21,7 @@ public interface TourRepositorio extends JpaRepository<Tour, String> {
     // buscarPasados @Query("Select c FROM Tour c WHERE fecha<fechaActual")
     // buscarConAsignar @Query("Select c FROM Tour c WHERE fecha>fechaActual AND id.guia!=null")
     
-    @Query("SELECT c FROM Tour c WHERE fecha > getdate() AND id.guia is null order by fecha") 
+    @Query("SELECT c FROM Tour c WHERE id.guia is null") 
     public List buscarSinAsignarTd ();
   
 }

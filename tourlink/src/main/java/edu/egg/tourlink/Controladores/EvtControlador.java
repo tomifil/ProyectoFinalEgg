@@ -5,6 +5,7 @@
  */
 package edu.egg.tourlink.Controladores;
 
+import edu.egg.tourlink.Entidades.EVT;
 import edu.egg.tourlink.Entidades.Guia;
 import edu.egg.tourlink.Entidades.Idioma;
 import edu.egg.tourlink.Entidades.Tour;
@@ -63,6 +64,7 @@ public class EvtControlador {
     
     @Autowired
     TipoTourServicio tipotourServicio;
+    private Object usuario;
         
     @GetMapping("/verGuias")
     public String guias() {
@@ -110,6 +112,12 @@ public class EvtControlador {
         } else {
             tours = tourRepositorio.buscarSinAsignarTd();
         }
+        modelo.put("t", t);
+        modelo.put("tours", tours);
+        modelo.put("error", error);
+        
+       
+        
         return "editarEvt.html";
     }
     

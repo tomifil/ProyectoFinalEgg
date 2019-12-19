@@ -130,12 +130,8 @@ public class PortalControlador {
                     
                     return "editarGuia.html";
                 } else {
-                    EVT evt = evtRepositorio.buscarEvt(usuario.getId());
-                    
-                    
-                    modelo.put("evt", evt);
-                    
-
+                    EVT evt = evtRepositorio.buscarEvt(usuario.getId());                 
+                    modelo.put("evt", evt);                  
                     return "editarEvt.html";
                 }
 
