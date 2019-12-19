@@ -88,6 +88,19 @@ public class EvtControlador {
         
         return "editarEvt.html";
     }
+    
+     @PostMapping("/buscarTourSinAsignar")
+    public String tourSinAsignar(@RequestParam(required = false) String t, @RequestParam(required = false) String error, ModelMap modelo) {
+        List <Tour> tours;
+        
+        if ( t != null && !t.isEmpty())  {
+            tours = tourRepositorio.buscarSinAsignar(t);
+        } else {
+            tours = tourRepositorio.buscarSinAsignarTd();
+        }
+        return "editarEvt.html";
+    }
+    
     @PostMapping("/buscarTipoTour")
     public String listadoTipoTour(@RequestParam(required = false) String q, @RequestParam(required = false) String error, ModelMap modelo) {
         List<Tipo_tour> tipo_tour;
@@ -146,4 +159,6 @@ public class EvtControlador {
         }
         return "editarEvt.html";
     }
+    
+   
 }
