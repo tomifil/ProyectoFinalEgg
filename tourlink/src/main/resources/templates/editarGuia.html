@@ -72,16 +72,16 @@
                           <div class="col-12">
 
                               <ul class="nav nav-tabs mb-4" id="myTab" role="tablist">
-                                  <li class="nav-item"><a class="nav-link active" id="tour_pasados-tab" data-toggle="tab" href="#tour_pasados" role="tab" aria-controls="tour_pasados" aria-selected="true">TOURS PASADOS</a></li>
-                                  <li class="nav-item">
-                                      <a class="nav-link" id="tour_asignados-tab" data-toggle="tab" href="#tour_asignados" role="tab" aria-controls="tour_asignados" aria-selected="false">TOURS ASIGNADOS</a>
+<!--                              <li class="nav-item"><a class="nav-link active" id="tour_pasados-tab" data-toggle="tab" href="#tour_pasados" role="tab" aria-controls="tour_pasados" aria-selected="true">TOURS PASADOS</a></li>-->
+                                  <li class="nav-item"><a class="nav-link active" id="tour_asignados-tab" data-toggle="tab" href="#tour_asignados" role="tab" aria-controls="tour_asignados" aria-selected="true">TOURS ASIGNADOS</a>
                                   </li>
                                   
                               </ul>
                               <div class="tab-content ml-1" id="">
-                                  <div class="tab-pane fade show active" id="tour_pasados" role="tabpanel" aria-labelledby="tour_pasados-tab">
+<!--                                  <div class="tab-pane fade show active" id="tour_pasados" role="tabpanel" aria-labelledby="tour_pasados-tab">
+                                      
                                       <div class="row">
-                                        <!-- bloque a repetirse según coincidencias de búsqueda -->
+                                         bloque a repetirse según coincidencias de búsqueda 
                                         <div class="col-3">
                                           <div class="card tour" style="width: 18rem;">
                                             <img src="http://lorempixel.com/300/200/nature" class="card-img-top" alt="img">
@@ -92,19 +92,23 @@
                                               <a href="#" class="btn btn-primary">Ver calificación</a>
                                             </div>
                                           </div>
-                                        </div><!-- Cierra bloque -->
+                                        </div> Cierra bloque 
                                       </div>
-                                  </div>
+                                  </div>-->
                                   <div class="tab-pane fade" id="tour_asignados" role="tabpanel" aria-labelledby="tour_asignados-tab">
+                                    <form action="evt/buscarToursAsignadosGuia" method="POST">
+                                        <input type="search" class="form-control mt-4" placeholder="Buscar" name="q" th:value="${q}">
+                                                <button type="submit" class="btn btn-primary icon-search mt-3">Buscar</button>
+                                    </form>
                                     <div class="row">
                                       <!-- bloque a repetirse según coincidencias de búsqueda -->
                                       <div class="col-3">
                                         <div class="card tour" style="width: 18rem;">
                                           <img src="http://lorempixel.com/300/200/nature" class="card-img-top" alt="img">
                                           <div class="card-body">
-                                            <h5 class="card-title">Nombre del tour</h5>
+                                            <h5 class="card-title" th:text="${tour.nombre}"></h5>
                                             <hr>
-                                            <p class="card-text"><span>Fecha</span> |  <span>Hora</span></p>
+                                            <p class="card-text"><span th:text="${tour.fecha}"></span> |  <span>Hora</span></p>
                                             <a href="#" class="btn btn-primary">Ver calificación</a>
                                           </div>
                                         </div>
