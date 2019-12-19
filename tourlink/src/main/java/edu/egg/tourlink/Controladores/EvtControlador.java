@@ -100,7 +100,7 @@ public class EvtControlador {
     }
 
     @PostMapping("/crearTour")
-    public String crearTour(@RequestParam(value = "legajo_id") String legajo_id, @RequestParam(value = "tipo_tour") String nombre_tipo_tour, @RequestParam(value = "idioma") String nombre_tipo_idioma,@RequestParam(value = "fecha") String fecha, @RequestParam(value = "horario") String horario) throws ErrorServicio, ParseException {
+    public String crearTour(@RequestParam(value = "legajo_id") String legajo_id, @RequestParam(value = "tipo_tour") String nombre_tipo_tour, @RequestParam(value = "idioma") String nombre_tipo_idioma,@RequestParam(value = "fecha") String fecha, @RequestParam(value = "horario") String horario,@RequestParam(value = "nombre") String nombre) throws ErrorServicio, ParseException {
         
         Tipo_tour tipo_tour = (Tipo_tour) tipotourServicio.buscarPorId(nombre_tipo_tour);
         Tipo_idioma tipo_idioma = Tipo_idioma.valueOf(nombre_tipo_idioma);
@@ -111,7 +111,7 @@ public class EvtControlador {
             if(fecha.equals(null)){
                 dateFormat = new Date();
             }
-            tourServicio.agregarTour(legajo_id, tipo_tour, tipo_idioma, dateFormat, horario);
+            tourServicio.agregarTour(legajo_id, tipo_tour, tipo_idioma, dateFormat, horario,nombre);
         } catch (ErrorServicio e) {
             e.printStackTrace();
             System.out.println("Faltan datos");
@@ -121,10 +121,10 @@ public class EvtControlador {
     }
 
   @PostMapping("/modificarTour")
-    public String modificarTour(@RequestParam(value = "id") String id, @RequestParam(value = "legajo_id") String legajo_id, @RequestParam(value = "tipo_tour") Tipo_tour tipo_tour, @RequestParam(value = "idioma") Tipo_idioma tipo_idioma, /*List<Calificacion> calificaciones,*/ @RequestParam(value = "fecha") Date fecha, @RequestParam(value = "horario") String horario) throws ErrorServicio {
+    public String modificarTour(@RequestParam(value = "id") String id, @RequestParam(value = "legajo_id") String legajo_id, @RequestParam(value = "tipo_tour") Tipo_tour tipo_tour, @RequestParam(value = "idioma") Tipo_idioma tipo_idioma, /*List<Calificacion> calificaciones,*/ @RequestParam(value = "fecha") Date fecha, @RequestParam(value = "horario") String horario, String nombre ) throws ErrorServicio {
         
         try {
-              tourServicio.modificarTour(legajo_id, id,tipo_tour, tipo_idioma, fecha, horario);
+              tourServicio.modificarTour(legajo_id, id,tipo_tour, tipo_idioma, fecha, horario, nombre);
        } catch (ErrorServicio e) {
             e.printStackTrace();
             System.out.println("Faltan datos");
