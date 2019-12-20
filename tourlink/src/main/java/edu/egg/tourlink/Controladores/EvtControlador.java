@@ -20,6 +20,7 @@ import edu.egg.tourlink.Servicios.GuiaServicio;
 import edu.egg.tourlink.Servicios.TipoTourServicio;
 import edu.egg.tourlink.Servicios.TourServicio;
 import edu.egg.tourlink.entidades.Tipo_tour;
+import edu.egg.tourlink.entidades.Usuario;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -61,6 +62,8 @@ public class EvtControlador {
 
     @Autowired
     EVTServicio es;
+    
+
     
     @Autowired
     TipoTourServicio tipotourServicio;
@@ -106,7 +109,6 @@ public class EvtControlador {
      @PostMapping("/buscarTourSinAsignar")
     public String tourSinAsignar(@RequestParam(required = false) String t, @RequestParam(required = false) String error, ModelMap modelo) {
         List <Tour> tours;
-        
         if ( t != null && !t.isEmpty())  {
             tours = tourRepositorio.buscarSinAsignar(t);
         } else {
@@ -114,6 +116,8 @@ public class EvtControlador {
         }
         modelo.put("t", t);
         modelo.put("tours", tours);
+         
+
         modelo.put("error", error);
         
        
@@ -125,10 +129,10 @@ public class EvtControlador {
     public String listadoTipoTour(@RequestParam(required = false) String q, @RequestParam(required = false) String error, ModelMap modelo) {
         List<Tipo_tour> tipo_tour;
         tipo_tour = guiaRepositorio.buscarTodos();
-//        modelo.put("q", q);
+        
         modelo.put("tipo_tour", tipo_tour);
         modelo.put("error", error);
-
+         
         return "editarEvt.html";
     }
 

@@ -62,9 +62,10 @@
                                   </div>
                               </div>
                               <div class="userData ml-3">
-                                  <h2 class="d-block" style="font-size: 1.5rem; font-weight: bold" th:text="${evt.razon_social}"></h2>                             
-                                  <h6 class="d-block"><a href="javascript:void(0)">1,500</a> Video Uploads</h6>
-                                  <h6 class="d-block"><a href="javascript:void(0)">300</a> Blog Posts</h6>
+                                  <h2 class="d-block" style="font-size: 1.5rem; font-weight: bold;color: black;" th:text="${evt.razon_social}"></h2>                             
+                                  <h6 class="d-block" style="color: black;" th:text="${evt.direccion}"></h6>
+                                  <h6 class="d-block" style="color: black;" th:text="${evt.razon_social}"></h6>
+                                  <h6 class="d-block" style="color: black;" th:text="${evt.telefono}"></h6>
                               </div>
                               <div class="ml-auto">
                                   <input type="button" class="btn btn-primary d-none" id="btnDiscard" value="Discard Changes" />
@@ -86,7 +87,10 @@
                                             <button type="button" class="btn btn-primary btn-xl" data-toggle="modal" data-target="#exampleModal">
                                               AGREGAR TOUR
                                             </button>
-                                          </li>                                                        
+                                          </li>       
+<!--                                          <li class="nav-item">
+                                              <a href="evt/verGuias" class="btn btn-primary btn-xl"> BUSCAR GUÍA</a>
+                                          </li>-->
                                         </ul>
                                       </div>
                                     </div>
